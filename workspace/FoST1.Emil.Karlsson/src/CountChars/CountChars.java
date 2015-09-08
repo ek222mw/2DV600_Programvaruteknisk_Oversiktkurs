@@ -1,0 +1,63 @@
+package CountChars;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class CountChars {
+	
+	
+	public static void main(String[] args){
+		
+		File file = new File("C:\\Users\\Emil\\Desktop\\chars.txt");
+		int Upper = 0, Lower = 0, Number = 0, Other = 0, whitespace = 0;
+		
+		
+		
+		try {
+			Scanner filescan = new Scanner(file).useDelimiter("'");
+			
+			while(filescan.hasNext())
+			{
+				
+				String scan = filescan.next();
+				
+				for(int i = 0; i<scan.length(); i++)
+				{
+					if(Character.isUpperCase(scan.charAt(i)))
+					{
+						Upper++;
+					}
+					else if(Character.isLowerCase(scan.charAt(i)))
+					{
+						Lower++;
+					}
+					else if(Character.isWhitespace(scan.charAt(i)))
+					{
+						whitespace++;
+					}
+					else if(Character.isDigit(scan.charAt(i)))
+					{
+						Number++;
+					}
+					else{
+						Other ++;
+					}
+				}
+			}
+			
+			System.out.println("Uppercase: "+Upper+ " Lowercase: "+ Lower + " Whitespace: "+ whitespace+ " Digits: "+ Number+ " Other: "+Other);
+			filescan.close();
+			
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+	}
+
+}

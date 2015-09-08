@@ -1,0 +1,70 @@
+package Fraction;
+
+public class Fraction {
+	
+	public static int getNumerator()
+	{
+		
+		
+		
+		return 0;
+		
+	}
+	
+	public static int getNominator()
+	{
+		
+		
+		return 0;
+	}
+	
+	public static boolean isNegative()
+	{
+		
+		
+		
+		
+		return false;
+		
+	}
+	
+	public static int add()
+	{
+		return 0;
+		
+	}
+	
+	public static int subtract()
+	{
+		return 0;
+		
+	}
+	
+	public static int multiply()
+	{
+		return 0;
+		
+	}
+	
+	public static int divide()
+	{
+		return 0;
+		
+	}
+	
+	public static int isEqulTo()
+	{
+		return 0;
+		
+	}
+	
+	public static String toString(int n, int d)
+	{
+		
+		
+		
+		return null;
+		
+	}
+
+}

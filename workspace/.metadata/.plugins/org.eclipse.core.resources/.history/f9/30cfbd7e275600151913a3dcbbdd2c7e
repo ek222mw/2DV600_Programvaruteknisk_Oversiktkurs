@@ -1,0 +1,19 @@
+package Fraction;
+
+public class FractionMain {
+	
+	public static void main(String[] args)
+	{
+		Fraction frac = new Fraction(5,10);
+		
+		int numerator = frac.getNumerator();
+		int denominator = frac.getDenominator();
+		
+		double add = frac.add(5,1);
+		String toString = frac.toString(add);
+		
+		double subtract = frac.subtract(5,1);
+		System.out.println(toString);
+	}
+
+}

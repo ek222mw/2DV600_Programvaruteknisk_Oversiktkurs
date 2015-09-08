@@ -1,0 +1,22 @@
+package Arrays;
+
+public class ArraysMain {
+	
+	public static void main(String[] args){
+		
+		
+		
+		//array to be used in all methods to demonstrate each methods function.
+		int[] arr = {10,20,30,40,50};
+		//Sums all numbers in array.
+		int sum = Arrays.sum(arr);
+		System.out.println("Sum "+ sum);
+		
+		// prints every number in array in a nice way.
+		String toString = Arrays.toString(arr);
+		System.out.print(toString);
+		
+		
+	}
+
+}

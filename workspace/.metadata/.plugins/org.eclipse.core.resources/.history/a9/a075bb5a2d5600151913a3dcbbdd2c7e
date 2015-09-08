@@ -1,0 +1,38 @@
+package Fraction;
+
+public class FractionMain {
+	
+	public static void main(String[] args)
+	{
+		Fraction frac = new Fraction(5,10);
+		
+		int numerator = frac.getNumerator();
+		int denominator = frac.getDenominator();
+		
+		double add = frac.add(5,1);
+		String addtoString = frac.toString(add);
+		System.out.println(addtoString);
+		
+		double subtract = frac.subtract(5,1);
+		String subtoString = frac.toString(subtract);
+		System.out.println(subtoString);
+		
+		double multiply = frac.multiply(5, 1);
+		String multtoString = frac.toString(multiply);
+		System.out.println(multtoString);
+		
+		double divide = frac.divide(5,2);
+		String divtoString = frac.toString(divide);
+		System.out.println(divtoString);
+		
+		boolean isequal = frac.isEqualTo(new Fraction(5,10), new Fraction(5,10));
+		System.out.println(isequal);
+		
+		boolean isnegative = frac.isNegative(new Fraction(5,1));
+		System.out.println(isnegative);
+		
+		
+		
+	}
+
+}

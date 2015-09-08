@@ -1,0 +1,146 @@
+package Arrays;
+
+import java.util.ArrayList;
+
+public class Arrays {
+	
+	public static void main(String[] args){
+		
+	}
+	
+	public static int sum(int[] arr){
+	
+		
+		int sum = 0;
+		
+		for(int i = 0;i<arr.length; i++ )
+		{
+			sum+= arr[i];
+		}
+		
+		
+		
+		return sum;
+		
+	}
+	
+	public static String toString(int[] arr){
+		int[] newarr = arr;
+		String out = "";
+		for(int i = 0; i<newarr.length; i++)
+		{
+			out += "n = " + newarr[i]+ ", ";
+		}
+		return out;
+		
+		
+		
+		
+	}
+	
+	
+	public static int[] addN(int[] arr, int n){
+		
+		int[] newarr = arr;
+		for(int i = 0; i<newarr.length; i++)
+		{
+			newarr[i]= newarr[i] + n;
+		}
+		
+		
+		return newarr;
+		
+	}
+	
+	public static int[] reverse(int[] arr){
+		
+		int[] reversearr = arr.clone();
+		
+		for(int i= 0; i<reversearr.length / 2; i++)
+		{
+			int t = reversearr[i];
+			reversearr[i] = reversearr[reversearr.length - i -1];
+			reversearr[reversearr.length - i -1] = t;
+		}
+		
+		return reversearr;
+		
+	}
+	
+	public static void replaceAll(int[] arr, int old, int nw){
+		
+		for(int i= 0;i<arr.length; i++)
+		{
+			if(arr[i] == old)
+			{
+				arr[i] = nw;
+			}
+		}
+		
+	}
+	
+	public static int[] sort(int[] arr){
+		
+		int[] sortarr = arr.clone();
+		
+		java.util.Arrays.sort(sortarr);
+		
+		
+		return sortarr;
+		
+	}
+	
+	public static boolean hasSubsequence(int[] arr, int[] sub){
+		
+		 ArrayList<Integer> list1 = new ArrayList<>();
+	     ArrayList<Integer> list2 = new ArrayList<>();
+	     int count = 0;
+	     for(int i : arr)
+	     {
+	    	 list1.add(i);
+	     }
+	     
+	     for(int k : sub)
+	     {
+	    	 list2.add(k);
+	    	 if(sub.length == count)
+	    	 {
+	    		 return true;
+	    	 }
+	     }
+	     
+	     for(int j : arr)
+	     {
+	    	 if(list2.contains(j))
+	    	 {
+	    		 count++;
+	    	 }
+	     }
+		
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	     return false;
+				
+				
+				
+		
+		
+		
+		
+	}
+	
+	public static int[] absDif(int[] arr1,int[] arr2){
+		
+		
+		
+		
+		
+		return arr2;
+		
+	}
+}

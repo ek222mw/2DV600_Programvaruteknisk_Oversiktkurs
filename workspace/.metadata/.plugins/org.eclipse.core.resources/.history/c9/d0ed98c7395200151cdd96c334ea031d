@@ -1,0 +1,29 @@
+package LargestK;
+
+public class LargestK {
+	
+	public static void main(String[] args){
+		
+		int facul;
+		int N = 5;
+		
+		if(N < 1){
+			System.out.println("N must be a positive number, try again");
+		}
+		else{
+			
+			facul = 1;
+			
+			for(int k = 2; k<=N; k++){
+				facul = facul * k;
+			}
+			
+			System.out.println("N "+ N+", " + "Faculty(N) "+ facul);
+			
+		}
+		
+		
+		
+	}
+
+}

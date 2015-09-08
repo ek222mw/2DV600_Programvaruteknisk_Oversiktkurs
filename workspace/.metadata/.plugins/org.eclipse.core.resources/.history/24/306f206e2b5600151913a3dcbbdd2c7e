@@ -1,0 +1,93 @@
+package Fraction;
+
+public class Fraction {
+	
+	private int numerator;
+	private int denominator;
+	
+	Fraction(int n, int d)
+	{
+		numerator = n;
+		denominator = d;
+	}
+	
+	public int getNumerator()
+	{
+		
+		
+		
+		return numerator;
+		
+	}
+	
+	public int getDenominator()
+	{
+		
+		
+		return denominator;
+	}
+	
+	public static boolean isNegative()
+	{
+		
+		
+		
+		
+		return false;
+		
+	}
+	
+	public double add(int n, int d)
+	{
+		double numi = ((denominator * n) + (numerator * d));
+		double deno = (denominator * d);
+		
+		return (numi/deno);
+		
+	}
+	
+	public double subtract(int n, int d)
+	{
+		
+		double deno = (denominator * d);
+		double numi = ((numerator * d) - (denominator * n));
+		
+		return (numi/deno);
+		
+	}
+	
+	public double multiply(int n, int d)
+	{
+		double deno = denominator * d;
+		double numi = numerator * n;
+		
+		return (numi/deno);
+		
+	}
+	
+	public double divide(int n, int d)
+	{
+		
+		double deno = denominator * n;
+		double numi = numerator * d;
+		
+		return (numi/deno);
+		
+	}
+	
+	public static int isEqulTo()
+	{
+		return 0;
+		
+	}
+	
+	public static String toString(double nd)
+	{
+		
+		String NDstring = "The ND number is: "+ nd;
+		
+		return NDstring;
+		
+	}
+
+}

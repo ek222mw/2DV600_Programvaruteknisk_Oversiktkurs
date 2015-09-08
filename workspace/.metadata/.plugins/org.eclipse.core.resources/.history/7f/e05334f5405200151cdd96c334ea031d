@@ -1,0 +1,44 @@
+package LargestK;
+
+import java.util.Scanner;
+
+public class LargestK {
+	
+	public static void main(String[] args){
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter a positive integer number");
+		
+		int input = scanner.nextInt();
+		int N = input;
+		int facul;
+		
+		while(N < 1)
+		{
+			if(N < 1){
+				System.out.println("N must be a positive number, try again");
+				input = scanner.nextInt();
+				
+				N = input;
+				
+				
+			}
+		}
+		
+			
+			facul = 1;
+			
+			for(int k = 2; k<=N; k+=2){
+				facul = facul * k ;
+			}
+			
+			System.out.println("N "+ N+", " + "Faculty(N) "+ facul);
+			
+			scanner.close();
+			
+		
+		
+		
+		
+	}
+
+}

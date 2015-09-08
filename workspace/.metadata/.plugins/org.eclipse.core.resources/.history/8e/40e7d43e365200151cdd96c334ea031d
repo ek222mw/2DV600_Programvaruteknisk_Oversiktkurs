@@ -1,0 +1,26 @@
+package Backwards;
+
+import java.util.Scanner;
+
+public class Backwards {
+	
+
+
+	   public static void main(String[] args){
+		   
+		   String text = "Hello! My name is Jonas Lundberg.";
+		   Scanner scanner = new Scanner(System.in);
+		   String input = scanner.nextLine();
+		   String reverse = new StringBuilder(input).reverse().toString();
+		   
+		   
+		   System.out.println(reverse);
+		   scanner.close();
+		   
+		   
+		   
+		   
+		   
+	   }
+
+}

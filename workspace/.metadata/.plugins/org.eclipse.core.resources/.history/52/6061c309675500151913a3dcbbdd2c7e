@@ -1,0 +1,40 @@
+package Arrays;
+
+public class ArraysMain {
+	
+	public static void main(String[] args){
+		
+		
+		
+		//array to be used in all methods to demonstrate each methods function.
+		int[] arr = {10,20,30,40,50};
+		//Sums all numbers in array.
+		int sum = Arrays.sum(arr);
+		System.out.println("Sum "+ sum);
+		int [] reversearr = arr;
+		// prints every number in array in a nice way.
+		String toString = Arrays.toString(arr);
+		System.out.println(toString);
+		
+		//The n value that will be added in all values in arr.
+		int n = 5;
+		//Adds N value to all elements in array.
+		int[] addN = Arrays.addN(arr, n);
+		
+		//Prints the new value
+		String addNToString = Arrays.toString(addN);
+		System.out.println(addNToString);
+		//Reverses the array and prints it out.
+		int[] reverse = Arrays.reverse(reversearr);
+		String reverseToString = Arrays.toString(reverse);
+		System.out.println(reverseToString);
+		
+		
+		toString = Arrays.toString(arr);
+		System.out.println(toString);
+		
+		
+		
+	}
+
+}

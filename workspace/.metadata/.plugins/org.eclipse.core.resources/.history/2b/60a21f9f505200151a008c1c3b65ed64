@@ -1,0 +1,47 @@
+package CountDigits;
+
+import java.util.Scanner;
+
+public class CountDigits {
+	
+	 public static void main(String[] args){
+		 
+		 Scanner scanner = new Scanner(System.in);
+		 System.out.println("Enter a number");
+		 int input = scanner.nextInt();
+		 int Even = 0;
+		 int Odd = 0;
+		 int Zero = 0;
+		 
+		
+	      int digit;
+
+	     
+
+	      input = Math.abs (input);
+	      if (input == 0)
+	         Zero++;
+
+	      while (input > 0)
+	      {
+	         digit = input % 10;
+
+	         if (digit == 0)
+	            Zero++;
+	         else
+	            if (digit%2 == 0)
+	               Even++;
+	            else
+	               Odd++;
+
+	         input = input / 10;
+	      }
+		 
+		 System.out.println("Zeros: "+ Zero+ " "+ "Odd: "+ Odd+" "+"Even: "+Even );
+		 scanner.close();
+		 
+	 }
+	 
+	
+
+}

@@ -1,0 +1,42 @@
+package Diamond;
+
+import java.util.Scanner;
+
+public class Diamond {
+
+	public static void main(String[] args)
+	{
+		Diamond diamon = new Diamond();
+		Scanner scan = new Scanner(System.in);
+		int input = scan.nextInt();
+		
+		diamon.LowerDiamond(input - 3);
+		diamon.UpperDiamond(input);
+		
+		
+		scan.close();
+		
+	}
+	
+	public  void LowerDiamond(int input)
+	{
+		for(int i = 0; i < input; i++)
+		{
+			for(int k = 0; k<i; k++)
+			{
+				System.out.println(" ");
+			}
+			
+			for(int l = 0; l < 2*(input - i) -1; l++)
+			{
+				System.out.println("*");
+				
+			}
+		}
+	}
+	
+	public  void UpperDiamond(int input)
+	{
+		
+	}
+}
