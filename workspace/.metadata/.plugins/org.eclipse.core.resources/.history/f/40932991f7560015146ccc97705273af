@@ -1,0 +1,59 @@
+package Deck;
+
+public class Deck {
+	
+	
+	private static Card[] cards;
+	
+	
+	public Card shuffle(Card c)
+	{
+		
+		if(!c.equals(52))
+		{
+			try {
+				throw new Exception("not 52 cards in the deck.");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return c;
+		
+	}
+	
+	public int handOutNextCard()
+	{
+		
+		
+		
+		
+		return 0;
+		
+	}
+	
+	public int deckSize()
+	{
+		
+		
+		
+		
+		
+		return 0;
+		
+	}
+
+	public static Card[] getCards() {
+		
+		cards = new Card[52];
+		
+		
+		return cards;
+		
+		
+		
+	}
+
+}

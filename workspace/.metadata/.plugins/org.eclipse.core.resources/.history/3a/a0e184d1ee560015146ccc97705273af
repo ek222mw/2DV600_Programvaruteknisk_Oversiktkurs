@@ -1,0 +1,10 @@
+package Deck;
+
+public class Deck {
+	
+	public Card shuffle(Card c)
+	{
+		
+	}
+
+}

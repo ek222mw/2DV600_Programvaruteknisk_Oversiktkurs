@@ -1,0 +1,72 @@
+package Deck;
+
+import java.util.ArrayList;
+
+import Deck.Card.Rank;
+import Deck.Card.Suite;
+
+public class Deck {
+	
+	
+	private static ArrayList<Card> cards;
+	
+	public Deck()
+	{
+		
+		for(Suite suite: Suite.values())
+		{
+			for(Rank rank : Rank.values())
+			{
+				cards.add(new Card(rank, suite));
+			}
+		}
+		
+	}
+	
+	
+	public Card shuffle()
+	{
+		
+		if(cards.size() != 52)
+		{
+			throw new Exception("Can't shuffle, not 52 cards in the deck.");
+		}
+		
+		
+		return c;
+		
+	}
+	
+	public int handOutNextCard()
+	{
+		
+		
+		
+		
+		return 0;
+		
+	}
+	
+	public int deckSize()
+	{
+		
+		
+		
+		
+		
+		return 0;
+		
+	}
+
+	public static ArrayList<Card> getCards() {
+		
+		cards = new ArrayList<Card>(52);
+		
+		
+		return cards;
+		
+		
+		
+	}
+
+}

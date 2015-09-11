@@ -15,12 +15,12 @@ public class CountChars {
 		
 		
 		try {
-			Scanner filescan = new Scanner(file).useDelimiter("'");
+			Scanner filescan = new Scanner(file);
 			
-			while(filescan.hasNext())
+			while(filescan.hasNextLine())
 			{
 				
-				String scan = filescan.next();
+				String scan = filescan.nextLine();
 				
 				for(int i = 0; i<scan.length(); i++)
 				{

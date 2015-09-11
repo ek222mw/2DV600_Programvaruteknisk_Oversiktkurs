@@ -1,0 +1,33 @@
+package Deck;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Deck.Card.Rank;
+import Deck.Card.Suite;
+
+public class PlayCardsMain {
+	
+	
+	public static void main(String[] args)
+	{
+		  Deck deck = new Deck();
+	        List<Card> cards = deck.getCards();
+	 
+	        
+	 
+	        
+	        deck.shuffle();
+	        
+	        /*for (Suite suit : Suite.values()) {
+	            for (Rank rank : Rank.values()) {
+	                System.out.println(cards.get(i++));
+	            }
+	        }*/
+	        Card playedcard = deck.handOutNextCard();
+	        System.out.println("Dealt Card: "+playedcard.toString());
+	        int cardsremaining = deck.deckSize();
+	        System.out.println("Cards remaining: "+cardsremaining);
+	}
+
+}

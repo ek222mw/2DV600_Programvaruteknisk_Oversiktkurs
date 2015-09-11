@@ -1,0 +1,242 @@
+package Queue;
+
+import java.util.Iterator;
+
+public class Queue {
+	 
+    public static void main(String[] args) {
+    	
+    	try{
+    		
+    	
+        QueueLinkedList queueList = new QueueLinkedList();
+ 
+        // add elements to queueList
+        queueList.enqueue("1");
+        queueList.enqueue("2");
+        queueList.enqueue("3");
+        queueList.enqueue("4");
+        queueList.enqueue("5");
+  
+        System.out.println(queueList.dequeue());
+        System.out.println(queueList.dequeue());
+        
+        
+        System.out.println("QueueList - print linkedlist: " + queueList);
+        System.out.println("QueueList.first() - print linkedlist first: " + queueList.first());
+        System.out.println("QueueList.last() - print linkedlist last: " + queueList.last());
+        System.out.println("QueueList.size() - print linkedlist size: " + queueList.size());
+        System.out.println("QueueList.IsEmpty() - print true if empty else false: " + queueList.isEmpty());
+        System.out.println("QueueList.contains() - true if exists else false: " + queueList.contains("3"));
+        //Iterator it = queueList.iterator();
+        while(queueList.iterator().hasNext())
+        {
+        	System.out.println("QueueList.iterator() - print iterator values: " + queueList.iterator().next());
+        }
+    	}
+    	catch(Exception e)
+    	{
+    		e.printStackTrace();
+    	}
+    }
+}
+ 
+class QueueLinkedList implements QueueInterface{
+    // reference to the head node.
+    private QueueHelper startVal;
+    private int queuelistCounter;
+ 
+    // LinkedList constructor
+    public QueueLinkedList() {
+        // this is an empty list, so the reference to the head node
+        // is set to a new node with no data
+        startVal = new QueueHelper(null);
+        queuelistCounter = 0;
+    }
+ 
+    private class QueueHelper {
+        // reference to the next node in the chain,
+        // or null if there isn't one.
+        QueueHelper qHelper;
+        // data carried by this node.
+        // could be of any type you need.
+        Object dataVal;
+ 
+        // Node constructor
+        public QueueHelper(Object dataValue) {
+            qHelper = null;
+            dataVal = dataValue;
+        }
+ 
+        // another Node constructor if we want to
+        // specify the node to point to.
+        public QueueHelper(Object dataValue, QueueHelper nextValue) {
+            qHelper = nextValue;
+            dataVal = dataValue;
+        }
+ 
+        // these methods should be self-explanatory
+        public Object getD() {
+            return dataVal;
+        }
+ 
+        public void setD(Object dataValue) {
+            dataVal = dataValue;
+        }
+ 
+        public QueueHelper getN() {
+            return qHelper;
+        }
+ 
+        public void setN(QueueHelper nextValue) {
+            qHelper = nextValue;
+        }
+    }
+
+    
+    @Override
+    public int size()
+    {
+    	return queuelistCounter;
+    }
+    
+	@Override
+	public boolean isEmpty() {
+		QueueHelper queueCurr = startVal;
+		
+		if(queueCurr.getN() == null)
+		{
+			return true;
+		}
+		
+		return false;
+	}
+
+	@Override
+	public void enqueue(Object element) {
+		
+		    QueueHelper queueTemp = new QueueHelper(element);
+	        QueueHelper queueCurr = startVal;
+	        // starting at the head node, crawl to the end of the list
+	        while (queueCurr.getN() != null) {
+	        	queueCurr = queueCurr.getN();
+	        }
+	        // the last node's "next" reference set to our new node
+	        queueCurr.setN(queueTemp);
+	        queuelistCounter++;// increment the number of elements variable
+	    
+		
+	}
+
+	@Override
+	public Object dequeue() throws IndexOutOfBoundsException {
+		
+		if(isEmpty())
+		{
+			throw new IndexOutOfBoundsException("Error no value to remove.");
+		}
+		QueueHelper queueCurr = startVal;
+		
+		QueueHelper queueTemp = queueCurr.getN();
+		
+		
+		queueCurr.setN(queueTemp.getN());
+		queuelistCounter--;
+		
+		
+		
+		return queueTemp.getD();
+	}
+
+	@Override
+	public Object first() throws IndexOutOfBoundsException {
+		
+		if(isEmpty())
+		{
+			throw new IndexOutOfBoundsException("Error no value found.");
+		}
+		
+		QueueHelper currenthead = startVal;
+		currenthead.getN();
+		
+		return currenthead.getN().getD();
+	}
+
+	@Override
+	public Object last() throws IndexOutOfBoundsException {
+		
+		if(isEmpty())
+		{
+			throw new IndexOutOfBoundsException("Error no value found.");
+		}
+		
+        QueueHelper queueCurr = startVal;
+        // starting at the head node, crawl to the end of the list
+        while (queueCurr.getN() != null) {
+        	queueCurr = queueCurr.getN();
+        }
+        // the last node's "next" reference set to our new node
+        queueCurr.getN();
+		
+		return queueCurr.getD();
+	}
+
+	@Override
+	public boolean contains(Object o) {
+		
+		
+		QueueHelper queueCurr = startVal;
+		 while (queueCurr.getN() != null) {
+			if(queueCurr.getN().getD() ==o)
+			{
+				return true;
+			}
+			
+		 }
+		 return false;
+	}
+
+
+	@Override
+	public Iterator iterator() {
+		
+		
+		return new Iterator(){
+			QueueHelper queueCurr = startVal;
+			@Override
+			public boolean hasNext() {
+				
+				queueCurr = queueCurr.getN();
+				
+				if(queueCurr != null)
+				{
+					return true;
+				}
+				
+				return false;
+			}
+
+			@Override
+			public Object next() {
+				
+				return queueCurr.getD();
+			}};
+	
+	}
+	
+	
+
+
+	
+	
+
+
+	
+	
+	
+	
+
+	
+
+	
+}

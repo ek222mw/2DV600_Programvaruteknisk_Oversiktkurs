@@ -1,0 +1,58 @@
+package Point;
+
+public class Point {
+	
+	private int x;
+	private int y;
+	
+	public Point(int x, int y) {
+		
+		x = this.x;
+		y = this.y;
+	}
+
+
+
+
+	public static void main(String[] args)
+	{
+		Point p1 = new Point(0,0);
+		Point p2 = new Point(3,4);
+		
+		System.out.println(p1.toString());
+		System.out.println(p2.toString());
+		
+		
+	}
+	
+	
+	
+	
+	public String toString()
+	{
+		
+		String str = "("+this.x+","+this.y+")";
+		
+		return str;
+		
+	}
+	
+	public Point moves(Point p)
+	{
+		
+		
+		
+		
+		return p;
+		
+	}
+	
+	public Point moveToXY(Point p)
+	{
+		
+		
+		return p;
+		
+	}
+
+}

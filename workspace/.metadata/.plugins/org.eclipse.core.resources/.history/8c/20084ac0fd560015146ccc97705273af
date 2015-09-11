@@ -1,0 +1,27 @@
+package Deck;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Deck.Card.Rank;
+import Deck.Card.Suite;
+
+public class PlayCardsMain {
+	
+	
+	public static void main(String[] args)
+	{
+		  Deck deck = new Deck();
+	        List<Card> cards = deck.getCards();
+	 
+	        int i = 0;
+	 
+	        for (Suite suit : Suite.values()) {
+	            for (Rank rank : Rank.values()) {
+	                System.out.println(cards.get(i++));
+	            }
+	        }
+	        deck.shuffle();
+	}
+
+}

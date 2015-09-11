@@ -1,0 +1,53 @@
+package Point;
+
+public class Point {
+	
+	public Point(int i, int j) {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Point() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public static void main(String[] args)
+	{
+		Point p1 = new Point();
+		Point p2 = new Point(3,4);
+		
+		System.out.println(p1.toString());
+		System.out.println(p2.toString());
+		
+		
+	}
+	
+	
+	public String toString()
+	{
+		
+		
+		return null;
+		
+	}
+	
+	public Point moves(Point p)
+	{
+		
+		
+		
+		
+		return p;
+		
+	}
+	
+	public Point moveToXY(Point p)
+	{
+		
+		
+		return p;
+		
+	}
+
+}

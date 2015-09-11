@@ -1,0 +1,41 @@
+package Deck;
+
+public class Card {
+
+	public enum Suite{
+		
+		Hearts,Spades,Clubs,Diamond
+	}
+	
+	public enum Rank{
+		
+		Deuce,Three,Four,Five,Six,Seven,Eigth,Nine,Ten,Jack,Queen,King,Ace
+	}	
+	
+	private final Suite suite;
+	private final Rank  rank;
+	
+	public Card(Rank rank, Suite suite)
+	{
+		this.suite = suite;
+		this.rank = rank;
+	}
+	
+	public Suite getSuite()
+	{
+		return this.suite;
+	}
+	
+	public Rank getRank()
+	{
+		return this.rank;
+	}
+	
+	public String toString()
+	{
+		return rank+ " of "+ suite;
+	}
+	
+	
+	
+}

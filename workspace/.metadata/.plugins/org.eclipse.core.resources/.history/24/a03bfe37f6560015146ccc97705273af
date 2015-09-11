@@ -1,0 +1,21 @@
+package Deck;
+
+public class Card {
+
+	
+	public static void main(String[] args)
+	{
+		
+	}
+	
+	public enum suite{
+		
+		Hearts,Spades,Clubs,Diamond
+	}
+	
+	public enum rank{
+		
+		Deuce,Three,Four,Five,Six,Seven,Eigth,Nine,Ten,Jack,Queen,King,Ace
+	}
+	
+}

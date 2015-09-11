@@ -1,0 +1,11 @@
+package Deck;
+
+public class PlayCardsMain {
+	
+	
+	public static void main(String[] args)
+	{
+		Card[] c = Deck.getCards();
+	}
+
+}
