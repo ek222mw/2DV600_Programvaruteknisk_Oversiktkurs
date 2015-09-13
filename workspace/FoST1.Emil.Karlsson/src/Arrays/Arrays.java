@@ -7,7 +7,7 @@ public class Arrays {
 	public static void main(String[] args){
 		
 	}
-	
+	//sums all elements in array and returns sum.
 	public static int sum(int[] arr){
 	
 		
@@ -23,7 +23,7 @@ public class Arrays {
 		return sum;
 		
 	}
-	
+	//returns a printable string.
 	public static String toString(int[] arr){
 		int[] newarr = arr;
 		String out = "";
@@ -38,7 +38,7 @@ public class Arrays {
 		
 	}
 	
-	
+	//adds new value to all elements in array and returns.
 	public static int[] addN(int[] arr, int n){
 		
 		int[] newarr = arr;
@@ -51,7 +51,7 @@ public class Arrays {
 		return newarr;
 		
 	}
-	
+	//Clones to new array and reverses order in it and returns.
 	public static int[] reverse(int[] arr){
 		
 		int[] reversearr = arr.clone();
@@ -66,7 +66,7 @@ public class Arrays {
 		return reversearr;
 		
 	}
-	
+	//loops through all value and replaces values that equals old with nw value.
 	public static void replaceAll(int[] arr, int old, int nw){
 		
 		for(int i= 0;i<arr.length; i++)
@@ -78,7 +78,7 @@ public class Arrays {
 		}
 		
 	}
-	
+	//clones and sorts to a new array and returns it.
 	public static int[] sort(int[] arr){
 		
 		int[] sortarr = arr.clone();
@@ -89,7 +89,7 @@ public class Arrays {
 		return sortarr;
 		
 	}
-	
+	//returns true if array sub equals order in array arr else false.
 	public static boolean hasSubsequence(int[] arr, int[] sub){
 		
 		
@@ -99,8 +99,6 @@ public class Arrays {
 	    
 	    for(int i= 0; i<arr.length; i++)
 	    {
-	    	
-	    	
 	    	if(arr[i] == sub[index])
 	    	{
 	    	
@@ -111,20 +109,13 @@ public class Arrays {
 	    			b = true;
 	    			return b;
 	    		}
-	    		
-	    		
 	    	}
 	    	else{
 	    		index = 0;
 	    	}
-	    	
-	    	
 	    }
 	    	 
-	    	
-	     
-	     
-	     return b;
+	    return b;
 	     
 	 
 				
@@ -134,7 +125,7 @@ public class Arrays {
 		
 		
 	}
-	
+	//subtracts all arr1 elements with arr2 elements and returns a new array with the difference. if not same length on arr1 and arr2 throws exception. 
 	public static int[] absDif(int[] arr1,int[] arr2){
 		
 		

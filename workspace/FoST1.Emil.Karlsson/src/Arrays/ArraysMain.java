@@ -33,13 +33,13 @@ public class ArraysMain {
 		System.out.println(reverseToString);
 		
 		//Replaces all values in arr that are equal to old value with value in nw. 
-		int old = 15;
-		int nw = 100;
+		int old = 2;
+		int nw = 10;
 		
 		Arrays.replaceAll(arr, old, nw);
 		//Prints replaced arr.
-		toString = Arrays.toString(arr);
-		System.out.println(toString);
+		String reptoString = Arrays.toString(arr);
+		System.out.println(reptoString);
 		
 		//Sorts arr and prints it out.
 		int[] sorted = Arrays.sort(arr);

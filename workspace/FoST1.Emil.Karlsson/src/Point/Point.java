@@ -1,11 +1,10 @@
 package Point;
 
 public class Point {
-	
+	// private fields
 	private int x;
 	private int y;
-	
-	
+	//Point constructor
 	public Point(int x, int y) {
 		
 		this.x = x;
@@ -13,36 +12,31 @@ public class Point {
 		
 		
 	}
-
-
-
-
+	//empty Point constructor.
 	public Point() {
 		
 	}
-
-
-
-
+	//main method.
 	public static void main(String[] args)
-	{
+	{	//init p1 to empty and p2 to (3,4).
 		Point p1 = new Point();
 		Point p2 = new Point(3,4);
 		
 		System.out.println(p1.toString());
 		System.out.println(p2.toString());
-		
+		//returns true if the points are equal and if true prints message.
 		if(p1.isEqual(p2))
 		{
 			System.out.println("The two points are equal");
 		}
-		
+		//returns the distance between the two points as double value and prints it.
 		double dist = p1.distanceTo(p2);
 		System.out.println("Point Distance: "+dist);
-		
+		//add the inputed values to the point values etc. moves.
 		p2.move(5, -2);
+		//overwrites the old values with new values.
 		p1.moveToXY(8, 2);
-		
+		//checks if points are equal and if true prints message.
 		if(p1.isEqual(p2))
 		{
 			System.out.println("The two points are equal");
@@ -54,7 +48,7 @@ public class Point {
 	
 	
 	
-	
+	//returns printable string for x and y.
 	public String toString()
 	{
 		
@@ -63,14 +57,14 @@ public class Point {
 		return str;
 		
 	}
-	
+	// returns distance between two points as a double value.
 	public double distanceTo(Point p)
 	{
 		
 		return Math.sqrt(Math.pow(p.x - this.x, 2) + Math.pow(p.y - this.y,2)); 
 		
 	}
-	
+	//if points are equal in x and y then return true else false.
 	public boolean isEqual( Point p)
 	{
 		if(this.x == p.x && this.y == p.y)
@@ -82,7 +76,7 @@ public class Point {
 		return false;
 		
 	}
-	
+	//adds x to points old x value and same with y.
 	public void move(int x, int y)
 	{
 
@@ -90,7 +84,7 @@ public class Point {
 			this.y = this.y + y;
 	
 	}
-	
+	//overwrites old x value with new x value and same for y.
 	public void moveToXY(int x, int y)
 	{
 		this.x = x;

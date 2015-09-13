@@ -1,0 +1,85 @@
+package Deck;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import Deck.Card.Rank;
+import Deck.Card.Suite;
+
+public class PlayCardsMain {
+	
+	
+	public static void main(String[] args)
+	{
+			//init new deck
+		  	Deck deck = new Deck();
+		  	//get cards to the list.
+	        List<Card> cards = deck.getCards();
+	        System.out.println("Alternative 1: Shuffle \n"
+	        					+ "Alternative 2: Deal Card \n"+
+	        					"Alternative 3: Remaining Cards \n"+
+	        					"Alternative 4: Exit"
+	        					);
+	        //init scan with keyboard input.
+	        Scanner scan =  new Scanner(System.in);
+	        //scan nextline.
+	        String input = scan.nextLine();
+	        boolean i = true;
+	        while(i)
+	        {
+	        	 
+	        switch(input)
+	        {	//if input equals "1" then shuffle.
+	        	case "1":
+	        	{
+	        		deck.shuffle();
+	        		
+	        		break;
+	        	}
+	        	case "2":
+	        	{
+	        		Card playedcard = deck.handOutNextCard();
+	     	        System.out.println("Dealt Card: "+playedcard.toString()+",");
+	     	       
+	     	        break;
+	        	}
+	        	case "3":
+	        	{
+	        		int cardsremaining = deck.deckSize();
+	     	        System.out.println("Cards remaining: "+cardsremaining);
+	     	       
+	     	        break;
+	        	}
+	        	case "4":
+	        	{
+	        		System.exit(0);
+	        		
+	        		break;
+	        	}
+	        	default:
+	        	{
+	        		break;
+	        	}
+	        	
+	        	
+	        }
+	        input = scan.nextLine();
+	        }
+	       
+	        
+	        
+	 
+	        
+	        
+	        
+	        /*for (Suite suit : Suite.values()) {
+	            for (Rank rank : Rank.values()) {
+	                System.out.println(cards.get(i++));
+	            }
+	        }*/
+	       
+	       
+	}
+
+}

@@ -9,7 +9,7 @@ public class Queue {
     	try{
     		
     	
-        QueueLinkedList queueList = new QueueLinkedList();
+        QueueList queueList = new QueueList();
  
         // add elements to queueList
         queueList.enqueue("1");
@@ -47,22 +47,21 @@ public class Queue {
     }
 }
  
-class QueueLinkedList implements QueueInterface{
-    
+class QueueList implements QueueInterface{
+    //private fields
     private QueueHelper startVal;
     private int queuelistCounter;
  
-    
-    public QueueLinkedList() {
+    //Constructor
+    public QueueList() {
         
         startVal = new QueueHelper(null);
         queuelistCounter = 0;
     }
  
     private class QueueHelper {
-        
+        //fields.
         QueueHelper qHelper;
-       
         Object dataVal;
  
         // QueueHelper constructor
@@ -95,13 +94,13 @@ class QueueLinkedList implements QueueInterface{
         }
     }
 
-    
+    //Returns size of elements, overrides interface method.
     @Override
     public int size()
     {
     	return queuelistCounter;
     }
-    
+    //Checks if empty, overrides interface method.
 	@Override
 	public boolean isEmpty() {
 		QueueHelper queueCurr = startVal;
@@ -113,7 +112,7 @@ class QueueLinkedList implements QueueInterface{
 		
 		return false;
 	}
-
+	//Add element.
 	@Override
 	public void enqueue(Object element) {
 		
@@ -129,7 +128,7 @@ class QueueLinkedList implements QueueInterface{
 	    
 		
 	}
-
+	//Removes element.
 	@Override
 	public Object dequeue() throws IndexOutOfBoundsException {
 		
@@ -149,7 +148,7 @@ class QueueLinkedList implements QueueInterface{
 		
 		return queueTemp.getD();
 	}
-
+	//Returns first element.
 	@Override
 	public Object first() throws IndexOutOfBoundsException {
 		
@@ -163,7 +162,7 @@ class QueueLinkedList implements QueueInterface{
 		
 		return currenthead.getNext().getD();
 	}
-
+	//Returns last element.
 	@Override
 	public Object last() throws IndexOutOfBoundsException {
 		
@@ -182,7 +181,7 @@ class QueueLinkedList implements QueueInterface{
 		
 		return queueCurr.getD();
 	}
-
+	//Returns true if Object o exists else false.
 	@Override
 	public boolean contains(Object o) {
 		
@@ -198,7 +197,7 @@ class QueueLinkedList implements QueueInterface{
 		 return false;
 	}
 
-
+	//returns iterator which contains all elements.
 	@Override
 	public Iterator iterator() {
 		

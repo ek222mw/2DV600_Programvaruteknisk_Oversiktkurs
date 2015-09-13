@@ -16,4 +16,5 @@
 <fullyQualifiedTypeName name="Deck.Card.Rank"/>
 <fullyQualifiedTypeName name="java.text.DecimalFormat"/>
 <fullyQualifiedTypeName name="Queue.Queue.Node"/>
+<fullyQualifiedTypeName name="java.util.InputMismatchException"/>
 </qualifiedTypeNameHistroy>
