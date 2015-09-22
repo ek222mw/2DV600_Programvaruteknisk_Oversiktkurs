@@ -1,0 +1,65 @@
+package Exercise2;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Vehicle {
+
+	private int countSpace;
+	private int countVehicles;
+	private int countPass;
+	private int size = 0;
+	private int sizePass = 0;
+	
+	
+	
+	public int getTotSpace()
+	{
+		return countSpace;
+	}
+	
+	public int getPassenger()
+	{
+		return sizePass;
+	}
+	
+	public int getTotPassenger()
+	{
+		return countPass;
+	}
+	
+	
+	public int getSize()
+	{
+		return size;
+	}
+	
+	public int getTotVehicles()
+	{
+		return countVehicles;
+	}
+	
+	
+	public void setTotVehicles(int v)
+	{
+		countVehicles += v;
+	}
+	
+	public void setSize(int v)
+	{
+		size = v;
+		countSpace += v;
+	}
+	
+	public void setPassenger(int p)
+	{
+		sizePass = p;
+		countPass += p;
+		
+	}
+	
+	
+	
+	
+}

@@ -12,7 +12,7 @@ public class Diamond {
 	{
 		try{
 			
-		
+		System.out.print("Enter a odd number to create a diamond");
 		//init scanner with keyboard input.
 		scan = new Scanner(System.in);
 		//scans next int.

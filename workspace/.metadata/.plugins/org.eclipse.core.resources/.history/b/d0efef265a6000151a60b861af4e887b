@@ -1,0 +1,31 @@
+package Exercise2;
+
+public class Passenger {
+	
+	
+	private int countPassenger;
+	public final int fee = 20;
+	
+	
+	public Passenger(int passenger) {
+		
+		
+		
+	}
+	
+	public Passenger()
+	{
+		
+	}
+	
+
+	public int getPassengers()
+	{
+		return countPassenger;
+	}
+	
+	public void addPassengers(int p)
+	{
+		countPassenger += p;
+	}
+}

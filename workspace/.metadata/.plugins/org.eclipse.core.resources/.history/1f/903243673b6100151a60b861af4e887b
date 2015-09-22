@@ -1,0 +1,39 @@
+package Exercise3;
+import org.junit.Test;
+import static org.junit.Assert.*; 
+
+public class CollectionTest  {
+
+	
+	@Test
+	public void testMulty()
+	{
+		ArrayIntList ail = new ArrayIntList();
+		ArrayIntStack ais = new ArrayIntStack();
+		//adds 1
+		ail.add(1);
+		//Test if first element is 1
+		assertEquals((Object)1,(Object)ail.get(0));
+		//checks if size is equal to 1
+		assertEquals((Object)1,(Object)ail.size);
+		
+		//removes first element.
+		ail.remove(0);
+		//checks if first element was removed.
+		assertEquals((Object)0,(Object)ail.get(0));
+		//checks if size is 0
+		assertEquals((Object)0,(Object)ail.size);
+		
+		//adds 7 at index 7.
+		ail.addAt(7, 7);
+		//checks if index 7 has value 7
+		//assertEquals((Object)7,(Object)ail.get(7));
+		//checks if size is equal to 1.
+		assertEquals((Object)1,(Object)ail.size);
+		
+		
+		
+	}
+	
+	
+}

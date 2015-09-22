@@ -1,0 +1,27 @@
+package Exercise1;
+
+public class CollectMain{
+	
+	public static void main(String[] args)
+	{
+		ArrayIntList it = new ArrayIntList();
+		ArrayIntStack is = new ArrayIntStack();
+		it.add(1);
+		it.add(2);
+		it.add(3);
+		it.add(4);
+		it.add(5);
+		it.add(6);
+		it.add(7);
+		it.add(8);
+		it.remove(3);
+		
+		//it.addAt(2, 0);
+		System.out.println(it.indexOf(1));
+		
+		is.push(1);
+		is.push(2);
+		is.pop();
+	}
+
+}

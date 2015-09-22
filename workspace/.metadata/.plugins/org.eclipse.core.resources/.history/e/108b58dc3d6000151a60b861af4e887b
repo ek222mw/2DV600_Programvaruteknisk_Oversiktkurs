@@ -1,0 +1,28 @@
+package Exercise2;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Vehicle {
+
+	private int countSpace;
+	private int countVehicles;
+	
+	
+	
+	
+	public int getTotSpace()
+	{
+		return countSpace;
+	}
+	
+	public int getTotVehicles()
+	{
+		return countVehicles;
+	}
+	
+	
+	
+	
+}

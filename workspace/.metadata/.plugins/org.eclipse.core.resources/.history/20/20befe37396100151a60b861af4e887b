@@ -1,0 +1,20 @@
+package Exercise3;
+import org.junit.Test;
+import static org.junit.Assert.*; 
+
+public class CollectionTest  {
+
+	
+	@Test
+	public void testMulty()
+	{
+		ArrayIntList ail = new ArrayIntList();
+		ArrayIntStack ais = new ArrayIntStack();
+		ail.add(1);
+		assertEquals((Object)1,(Object)ail.get(0));
+		
+		
+	}
+	
+	
+}

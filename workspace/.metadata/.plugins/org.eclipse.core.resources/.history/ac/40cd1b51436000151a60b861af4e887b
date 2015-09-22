@@ -1,0 +1,16 @@
+package Exercise2;
+
+public class FerryMain {
+	
+	public static void main(String[] args)
+	{	
+		
+		FerryClass fc = new FerryClass();
+		Car c = new Car();
+		fc.embark(c);
+		
+		int count = fc.countVehicleSpace();
+		System.out.println(count);
+	}	
+
+}

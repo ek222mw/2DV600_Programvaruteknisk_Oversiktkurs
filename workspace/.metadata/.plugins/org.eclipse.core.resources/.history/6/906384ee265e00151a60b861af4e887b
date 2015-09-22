@@ -1,0 +1,8 @@
+package Exercise2;
+
+public class Bicycle extends Vehicle {
+	
+	public final double space = 0.2;
+	public final int fee = 40;
+
+}

@@ -1,0 +1,9 @@
+package Exercise2;
+
+public class Lorry extends Vehicle {
+	
+	public final double space = 8;
+	public final int fee = 300;
+	public final int passengerfee = 15;
+
+}

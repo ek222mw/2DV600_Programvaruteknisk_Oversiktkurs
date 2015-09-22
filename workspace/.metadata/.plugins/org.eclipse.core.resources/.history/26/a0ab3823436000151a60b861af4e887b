@@ -1,0 +1,26 @@
+package Exercise2;
+
+public class Passenger {
+	
+	
+	private int countPassenger = 0;
+	
+	
+	public void add()
+	{
+		FerryClass fs = new FerryClass();
+		if(countPassenger < fs.max_passenger )
+		{
+			countPassenger++;
+		}
+		else{
+			System.out.println("Ferry full, can't be more than 200 passengers.");
+		}
+	}
+	
+	public int getPassengers()
+	{
+		return countPassenger;
+	}
+
+}

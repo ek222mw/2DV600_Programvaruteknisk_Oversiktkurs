@@ -1,0 +1,21 @@
+package Exercise2;
+
+public class Car extends Vehicle {
+
+	private final int space =1;
+	private final int fee = 100;
+	Car c = new Car();
+	
+	
+	public Car()
+	{
+		AddSpace(space);
+		AddVehicle(c);
+	}
+		
+	
+	
+	
+	
+	
+}

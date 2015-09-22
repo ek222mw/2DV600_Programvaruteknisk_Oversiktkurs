@@ -1,0 +1,34 @@
+package Exercise2;
+
+import java.util.Iterator;
+
+public class FerryMain {
+	
+	public static void main(String[] args)
+	{	
+		
+		FerryClass fc = new FerryClass();
+		Passenger p = new Passenger();
+		Iterator i = fc.vehiclelist.iterator();
+		while (i.hasNext()) {
+			System.out.println(i.next().getClass().getName());
+		}
+		p.addPassengers(4,p.fee);
+		Car c = new Car(3,fc.generateID());
+		Bicycle b = new Bicycle(4,fc.generateID());
+		fc.embark(c);
+		fc.embark(p);
+		fc.embark(b);
+		
+		
+		
+		int count = fc.countVehicleSpace();
+		int passcount = fc.countPassengers();
+		int money = fc.countMoney();
+		
+		System.out.println("Space: "+count);
+		System.out.println("Passengers: "+passcount);
+		System.out.println("Money: "+money);
+	}	
+
+}

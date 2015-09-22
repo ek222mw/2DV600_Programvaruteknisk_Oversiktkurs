@@ -1,0 +1,11 @@
+package Exercise2;
+
+public class Bus extends Vehicle{
+	
+	public final int space = 4;
+	public final int fee = 200;
+	public final int passengerfee = 10;
+	
+	
+
+}

@@ -1,0 +1,13 @@
+package Exercise2;
+
+public class FerryMain {
+	
+	public static void main(String[] args)
+	{	
+		Car c = new Car();
+		FerryClass fc = new FerryClass();
+		c.AddVehicle(c, c.space);
+		System.out.println(fc.countVehicleSpace());
+	}
+
+}

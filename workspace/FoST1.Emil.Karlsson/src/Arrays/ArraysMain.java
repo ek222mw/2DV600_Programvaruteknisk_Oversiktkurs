@@ -12,7 +12,7 @@ public class ArraysMain {
 		//Sums all numbers in array.
 		int sum = Arrays.sum(arr);
 		System.out.println("Sum "+ sum);
-		int [] reversearr = arr;
+		
 		
 		// prints every number in array in a nice way.
 		String toString = Arrays.toString(arr);
@@ -21,13 +21,13 @@ public class ArraysMain {
 		//The n value that will be added in all values in arr.
 		int n = 1;
 		//Adds N value to all elements in array.
-		int[] addN = Arrays.addN(arr, n);
-		
+		arr = Arrays.addN(arr, n);
+		int [] reversearr = arr.clone();
 		//Prints the new value
-		String addNToString = Arrays.toString(addN);
+		String addNToString = Arrays.toString(arr);
 		System.out.println(addNToString);
 		
-		//Reverses the array and prints it out.
+		//Reverses the new array and prints it out.
 		int[] reverse = Arrays.reverse(reversearr);
 		String reverseToString = Arrays.toString(reverse);
 		System.out.println(reverseToString);
@@ -35,17 +35,16 @@ public class ArraysMain {
 		//Replaces all values in arr that are equal to old value with value in nw. 
 		int old = 2;
 		int nw = 10;
-		
 		Arrays.replaceAll(arr, old, nw);
 		//Prints replaced arr.
 		String reptoString = Arrays.toString(arr);
 		System.out.println(reptoString);
 		
-		//Sorts arr and prints it out.
+		//Sorts new array  and prints it out.
 		int[] sorted = Arrays.sort(arr);
 		toString = Arrays.toString(sorted);
 		System.out.println(toString);
-		
+
 		//Checks if array is in subsequence then return true else false, and prints it.
 		int sub[] = {3,4,5};
 		boolean seq = Arrays.hasSubsequence(arr, sub);
@@ -56,6 +55,7 @@ public class ArraysMain {
 		int[] diff = Arrays.absDif(arr, arr2);
 		toString = Arrays.toString(diff);
 		System.out.println(toString);
+		
 		
 		
 		

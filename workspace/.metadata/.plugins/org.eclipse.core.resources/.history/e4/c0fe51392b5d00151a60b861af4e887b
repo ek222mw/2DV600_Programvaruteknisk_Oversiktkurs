@@ -1,0 +1,49 @@
+package Exercise1;
+
+public class ArrayIntList extends AbstractIntCollection implements IntList {
+
+	
+	
+	@Override
+	public void add(int n) {
+		
+			if(values.length == size)
+			{
+				resize();
+			}
+			if(values.length > size)
+			{
+				values[size++] = n;
+			}
+			
+		
+		
+		
+	}
+
+	@Override
+	public void addAt(int n, int index) {
+		
+		values[index] = n;
+		
+	}
+
+	@Override
+	public void remove(int index) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int get(int index) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int indexOf(int n) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,0 +1,19 @@
+package Exercise2;
+
+public class Vehicle {
+
+	private int countSpace = 0;
+	
+	
+	public int getTotSpace()
+	{
+		return countSpace;
+	}
+	
+	public void AddSpace(int n)
+	{
+		countSpace = countSpace +n;
+	}
+	
+	
+}

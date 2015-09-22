@@ -1,0 +1,41 @@
+package Exercise1;
+
+public class ArrayIntStack extends AbstractIntCollection implements IntStack {
+
+	@Override
+	public void push(int n) {
+		if(values.length <= size)
+		{
+			resize();
+		}
+		if(values.length > size)
+		{
+			values[size++] = n;
+		}
+		
+			
+		
+	}
+
+	@Override
+	public int pop() {
+		
+		int tmp = values[size-1];
+		values[size-1] = 0; 
+		
+		size =size-1;
+		System.arraycopy(values,size+1,values,size,values.length-1-size);
+		int[] tmparr = new int[values.length-1];
+		System.arraycopy(values,0,tmparr,0,values.length-1); 
+		values = tmparr;
+		
+		return tmp;
+	}
+
+	@Override
+	public int peek() {
+		
+		return values[size-1];
+	}
+
+}

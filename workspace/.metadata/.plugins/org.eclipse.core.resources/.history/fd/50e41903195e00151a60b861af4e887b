@@ -1,0 +1,17 @@
+package Exercise2;
+
+public class Car extends Vehicle {
+
+	private final int space =1;
+	
+	public Car()
+	{
+		AddSpace(space);
+	}
+		
+	
+	
+	
+	
+	
+}

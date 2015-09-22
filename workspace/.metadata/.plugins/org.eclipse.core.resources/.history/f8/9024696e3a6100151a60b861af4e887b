@@ -1,0 +1,28 @@
+package Exercise3;
+import org.junit.Test;
+import static org.junit.Assert.*; 
+
+public class CollectionTest  {
+
+	
+	@Test
+	public void testMulty()
+	{
+		ArrayIntList ail = new ArrayIntList();
+		ArrayIntStack ais = new ArrayIntStack();
+		//adds 1
+		ail.add(1);
+		//Test if first element is 1
+		assertEquals((Object)1,(Object)ail.get(0));
+		//checks if size is equal to 1
+		assertEquals((Object)1,(Object)ail.size);
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+}

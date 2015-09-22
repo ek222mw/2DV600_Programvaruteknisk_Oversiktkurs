@@ -1,0 +1,70 @@
+package Exercise2;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class FerryClass implements Ferry {
+
+	public final int max_passenger = 200;
+	public final int max_cars = 40;
+	public final int max_space = 200;
+	ArrayList<Vehicle> vehiclelist = new ArrayList<>();
+	
+	
+	@Override
+	public int countPassengers() {
+		Passenger p = new Passenger();
+		int Countpassenger = p.getPassengers();
+		return Countpassenger;
+	}
+
+	@Override
+	public int countVehicleSpace() {
+		Vehicle v = new Vehicle();
+		
+		return v.getTotSpace();
+	}
+
+	@Override
+	public int countMoney() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Iterator iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void embark(Vehicle v) {
+		
+		
+	}
+
+	@Override
+	public void embark(Passenger p) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void disembark() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean hasSpaceFor(Vehicle v) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean hasRoomFor(Passenger p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

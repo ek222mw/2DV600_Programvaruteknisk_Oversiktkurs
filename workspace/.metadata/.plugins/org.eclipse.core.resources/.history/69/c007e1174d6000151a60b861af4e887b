@@ -1,0 +1,18 @@
+package Exercise2;
+
+public class Passenger {
+	
+	
+	private int countPassenger = 0;
+	
+	
+	public int getPassengers()
+	{
+		return countPassenger;
+	}
+	
+	public void addPassengers(int p)
+	{
+		countPassenger += p;
+	}
+}

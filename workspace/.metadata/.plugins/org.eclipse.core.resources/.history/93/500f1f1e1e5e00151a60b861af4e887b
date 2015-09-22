@@ -1,0 +1,33 @@
+package Exercise2;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Vehicle {
+
+	private int countSpace = 0;
+	private int countVehicles = 0;
+	List vehiclelist = new ArrayList<>(); 
+	
+	public int getTotSpace()
+	{
+		return countSpace;
+	}
+	
+	public void AddSpace(int n)
+	{
+		
+	}
+	
+	public void AddVehicle(Object obj, int n)
+	{
+		countVehicles++;
+		
+		vehiclelist.add(obj);
+		countSpace = countSpace +n;
+		
+	}
+	
+	
+}

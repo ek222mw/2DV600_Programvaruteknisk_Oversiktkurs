@@ -1,0 +1,107 @@
+package Exercise2;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class FerryClass implements Ferry {
+
+	public final int max_passenger = 200;
+	public final int max_cars = 40;
+	public final int max_space = 200;
+	private int countSpace = 0;
+	ArrayList<Vehicle> vehiclelist = new ArrayList<>();
+	ArrayList<Passenger> passlist = new ArrayList<>();
+	
+	
+	@Override
+	public int countPassengers() {
+		int passenger = 0;
+		for(int i=0; i<passlist.size();i++)
+		{
+			passenger += passlist.get(i).getPassengers();
+			passlist.get(i).addPassengers(passenger);
+			
+		}
+		return passenger;
+	}
+
+	@Override
+	public int countVehicleSpace() {
+		int count=0;
+		int countPass = 0;
+		for(int i=0; i<vehiclelist.size();i++)
+		{
+			count += vehiclelist.get(i).getSize();
+			vehiclelist.get(i).setSize(count);
+			countPass += vehiclelist.get(i).getPassenger();
+			vehiclelist.get(i).setPassenger(countPass);
+			
+		}
+		
+		
+		return count;
+	}
+
+	@Override
+	public int countMoney() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Iterator iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void embark(Vehicle v) {
+		if(hasSpaceFor(v))
+		{
+			vehiclelist.add(v);
+			
+		}
+		
+	}
+
+	@Override
+	public void embark(Passenger p) {
+		
+		if(hasRoomFor(p))
+		{
+			passlist.add(p);
+		}
+		
+	}
+
+	@Override
+	public void disembark() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean hasSpaceFor(Vehicle v) {
+	
+		
+		if(v.getTotSpace() <= max_space)
+		{
+			return true;
+		}
+		
+		return false;
+	}
+
+	@Override
+	public boolean hasRoomFor(Passenger p) {
+		
+		if(p.getPassengers() <= max_passenger)
+		{
+			return true;
+		}
+		
+		
+		return false;
+	}
+
+}

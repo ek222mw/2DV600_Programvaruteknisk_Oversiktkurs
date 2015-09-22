@@ -1,0 +1,18 @@
+package Exercise2;
+
+public class Bicycle extends Vehicle {
+	
+	public final int space = 1;
+	public final int fee = 40;
+	
+	public Bicycle(int bicycles, int id)
+	{
+		 setID(id);
+		 setSize(space*bicycles);
+		 setFee((fee*bicycles));
+		 setBicyclePassenger(bicycles);
+		 
+		
+	}
+
+}

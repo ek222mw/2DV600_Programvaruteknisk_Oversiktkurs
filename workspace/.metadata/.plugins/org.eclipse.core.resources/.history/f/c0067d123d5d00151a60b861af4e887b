@@ -1,0 +1,20 @@
+package Exercise1;
+
+public class CollectMain{
+	
+	public static void main(String[] args)
+	{
+		ArrayIntList it = new ArrayIntList();
+		it.add(1);
+		it.add(1);
+		it.add(1);
+		it.add(1);
+		it.add(1);
+		it.add(1);
+		it.add(1);
+		it.addAt(2, 0);
+		it.indexOf(1);
+		it.remove(0);
+	}
+
+}
