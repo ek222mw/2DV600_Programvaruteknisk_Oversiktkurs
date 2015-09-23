@@ -1,0 +1,38 @@
+package Exercise4;
+import org.junit.Test;
+import static org.junit.Assert.*; 
+
+public class QueueTest {
+	@Test
+	public void Test()
+	{
+		
+		QueueList<String> queueList = new QueueList<String>();
+		
+		 // add elements to queueList
+        queueList.enqueue("1");
+        queueList.enqueue("2");
+        queueList.enqueue("3");
+        queueList.enqueue("4");
+        queueList.enqueue("5");
+        //checks if list contains five elements.
+        assertEquals((Object)5,(Object)queueList.size());
+        
+        //removes elements to queueList
+        queueList.dequeue();
+        queueList.dequeue();
+        //checks if list contains three elements
+        assertEquals((Object)3,(Object)queueList.size());
+        //checks if first in list is three instead of one.
+        assertEquals((Object)"3",(Object)queueList.first());
+        //checks if last in list is 5.
+        assertEquals((Object)"5",(Object)queueList.last());
+        
+        //checks if first in list is three instead of one.
+        assertTrue(queueList.isEmpty() == false);
+        
+        
+		
+	}
+
+}

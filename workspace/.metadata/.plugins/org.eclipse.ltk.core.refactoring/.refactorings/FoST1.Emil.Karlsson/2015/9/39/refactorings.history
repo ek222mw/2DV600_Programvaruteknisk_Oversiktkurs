@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;Fost2.Emil.Karlsson/src/Exercise4&apos;&#x0D;&#x0A;- Original project: &apos;FoST1.Emil.Karlsson&apos;&#x0D;&#x0A;- Destination element: &apos;Fost2.Emil.Karlsson/src/Exercise4&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Queue.QueueInterface.java&#x0D;&#x0A;     Queue.Queue.java" description="Copy compilation units" destination="=Fost2.Emil.Karlsson/src&lt;Exercise4" element1="/src&lt;Queue{QueueInterface.java" element2="/src&lt;Queue{Queue.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1442998218605" units="2" version="1.0"/>
+</session>

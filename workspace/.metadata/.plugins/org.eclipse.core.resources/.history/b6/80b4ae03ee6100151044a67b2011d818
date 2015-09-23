@@ -1,0 +1,40 @@
+package Exercise5;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class IdentyfyWordsMain {
+	
+	public static void main(String[] args)
+	{
+		
+		File file = new File("C:\\Users\\Emil\\Desktop\\HistoryOfProgramming.txt");
+		
+		try {
+			Scanner filescan = new Scanner(file);
+			List<Object> list = new ArrayList<>();
+			while(filescan.hasNext())
+			{
+				
+				String scan = filescan.next().replaceAll("[^a-zA-Z\n]","");
+				System.out.print(scan);
+				list.add(scan);
+				
+				
+				
+			}
+			
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+
+}

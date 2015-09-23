@@ -1,0 +1,50 @@
+package Exercise5;
+
+public class Word implements Comparable {
+	private String word;
+
+	public Word(String str) { 
+		str = word;
+	}
+	
+	public static void main(String[] args)
+	{
+		
+		Word w = new Word("hello");
+		Word w2 = new Word("HELLO");
+		
+		System.out.println(w.equals(w2));
+	}
+	
+	public String toString() { return word; }
+	/* Override Object methods */
+	public int hashCode() {
+		return word.hashCode();
+		//"compute a hash value for word" 
+	}
+	public boolean equals(Object other) {
+		
+		if(other instanceof Word)
+		{
+			Word otherWord = (Word)other;
+			return word.equals(otherWord.word);
+		}
+		
+		
+		return false; 
+		
+		
+	}
+	/* Implement Comparable */
+	public int compareTo(Word w) { //"compares two words lexicographically"}
+		
+		
+	}
+	
+	@Override
+	public int compareTo(Object arg0) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}
+	
