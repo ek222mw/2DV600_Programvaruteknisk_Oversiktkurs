@@ -1,0 +1,55 @@
+package Exercise5;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class WordCount1Main {
+	public static void main(String[] args)
+	{
+		File file = new File("C:\\Users\\Emil\\Desktop\\HistoryOfProgramming.txt");
+		
+		try {
+			Scanner filescan = new Scanner(file);
+			ArrayList<Word> list = new ArrayList<Word>();
+			Set<Word>hash =  new HashSet<Word>();
+			while(filescan.hasNext())
+			{	
+				String scan = filescan.next().replaceAll("[^a-zA-Z\n]","");
+				
+				list.add(new Word(scan));
+				
+			}
+			filescan.close();
+			try {
+				FileWriter filewriter = new FileWriter("C:\\Users\\Emil\\Desktop\\word.txt");
+					
+			    filewriter.write(list.toString().replace(",","").replace("[", "").replace("]", "").replace("  ", " ").trim());
+			    File file = new File("C:\\Users\\Emil\\Desktop\\word.txt");
+			    Scanner filescan2 = new
+				filewriter.close();
+			}
+			catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println(list);
+			for(Word word : list)
+			{
+				hash.add(word);
+			}
+			
+			
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	}
+}

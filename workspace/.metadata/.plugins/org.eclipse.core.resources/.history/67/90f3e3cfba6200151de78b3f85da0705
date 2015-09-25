@@ -1,0 +1,81 @@
+package Exercise5;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class WordCount1Main {
+	public static void main(String[] args)
+	{
+		File file = new File("C:\\Users\\Emil\\Desktop\\HistoryOfProgramming.txt");
+		
+		try {
+			Scanner filescan = new Scanner(file);
+			ArrayList<Word> list = new ArrayList<Word>();
+			ArrayList<Word> list2 = new ArrayList<Word>();
+			Set<Word> hash =  new HashSet<Word>();
+			Set<Word> tree = new TreeSet<Word>();
+			
+			while(filescan.hasNext())
+			{	String scan = filescan.next().replaceAll("\\-"," ");
+				scan = scan.replaceAll(" "," \n");
+				String scann = scan.replaceAll("[^a-zA-Z\n]","");
+				
+				//String upper = scann.toUpperCase();
+				list.add(new Word(scann));
+				
+			}
+			filescan.close();
+			try {
+				FileWriter filewriter = new FileWriter("C:\\Users\\Emil\\Desktop\\word.txt");
+					
+			    filewriter.write(list.toString().replace(",","").replace("[", "").replace("]", "").replace("  ", " ").trim());
+			    filewriter.close();
+			    File file2 = new File("C:\\Users\\Emil\\Desktop\\word.txt");
+			    Scanner filescan2 = new Scanner(file2);
+			    while(filescan2.hasNext())
+				{	
+			    	String scan2 = filescan2.next();
+			    	list2.add(new Word(scan2));
+				}
+			    filescan2.close();
+				
+			}
+			catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			for(Word word : list2)
+			{
+				tree.add(word);
+				hash.add(word);
+				//System.out.println(word);
+				
+				
+			}
+			System.out.println(hash.size());
+			System.out.println(tree.size());
+			Iterator<Word> it = tree.iterator();
+			while(it.hasNext())
+			{
+				Object o = it.next();
+				System.out.println(o);
+			}
+			
+			
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	}
+}

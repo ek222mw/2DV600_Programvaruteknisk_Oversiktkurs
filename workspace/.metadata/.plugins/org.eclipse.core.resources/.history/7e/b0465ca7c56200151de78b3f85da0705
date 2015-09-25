@@ -1,0 +1,64 @@
+package Exercise5;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class IdentyfyWordsMain {
+	
+	
+	public static void main(String[] args)
+	{
+		
+		ArrayList<String> list = new ArrayList<String>();
+		try {
+			Scanner s;
+			s = new Scanner(new File("C:/Users/Emil/Desktop/HistoryOfProgramming.txt"), "UTF-8");
+			while (s.hasNextLine()){
+				//replaceAll("^[A-Za-z\n]", "")
+				String temp = s.nextLine();
+				//temp.replaceAll("[^-]", " ");
+				String temp2 = temp.replaceAll("\\-", " ");
+				String next = temp2.replaceAll("[^A-Za-z\n ]", "");
+				next = next.replaceAll("\\s+", " ");
+				
+				if(!next.toString().isEmpty()){
+					list.add(next);
+				}
+			}
+			s.close();
+			while(list.remove(null));
+			//list.removeAll(Collections.singleton(""));
+			//list.removeAll(Collections.singleton(null));
+			
+			FileWriter writer;
+			try {
+				writer = new FileWriter("C:/Users/Emil/Desktop/words.txt");
+			
+			
+			for(String str: list) {
+			  writer.write(str);
+			}
+			writer.close();
+			}
+		 catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+		 }
+		}
+		catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		
+		
+		
+		
+	}
+
+}

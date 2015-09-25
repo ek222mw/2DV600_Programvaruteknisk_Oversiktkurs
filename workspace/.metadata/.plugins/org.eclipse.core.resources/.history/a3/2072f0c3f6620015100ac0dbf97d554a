@@ -1,0 +1,126 @@
+package Exercise5;
+
+import java.util.Iterator;
+
+public class TreeWordSet implements WordSet {
+	
+	private BST root = null;
+	
+	@Override
+	public Iterator iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void add(Word word) {
+		if (root==null) 
+			root = new BST(word);
+		else
+			root.add(word);
+		
+	}
+
+	@Override
+	public boolean contains(Word word) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	private class BST {
+		Word value;
+		BST left = null;
+		BST right = null;
+		
+		BST(Word val) {
+			value = val;
+		}
+		
+		void add(Word n) {
+			if (n.compareTo(value) <0) {  // add to left branch
+				if (left == null)
+					left = new BST(n);
+				else
+					left.add(n);
+			}
+			else if (n.compareTo(value)> 0) { // add to right branch
+				if (right == null)
+					right = new BST(n);
+				else
+					right.add(n);
+			}
+		}
+		
+		boolean contains(Word n) {
+			if (n.compareTo(value)< 0) {  // search left branch
+				if (left == null)
+					return false;
+				else
+					return left.contains(n);
+			}
+			else if (n.compareTo(value)> 0) { // search right branch
+				if (right == null)
+					return false;
+				else
+					return right.contains(n);
+			}
+			return true;   // Found!
+		}
+		
+		BST remove(int n) {
+			if (n<value) {
+				if (left != null)
+					left = left.remove(n);
+			}
+			else if (n>value) {
+				if (right != null)
+					right = right.remove(n);
+			}
+			else {  // remove this node value
+				if (left==null)
+					return right;
+				else if (right==null)
+					return left;
+				else {
+					if (right.left == null) {
+						value = right.value;
+						right = right.right;
+					}
+					else {
+						value = right.delete_min();
+					}
+				}		
+			}
+			return this;
+		}
+		
+		
+		int delete_min() {
+			if (left.left==null) {
+				int min = left.value;
+				left = null;
+				return min;
+			}
+			else {
+				return left.delete_min();
+			}
+		}
+		
+		void print() {
+			if (left != null)  // print left
+				left.print();
+			
+			System.out.print(" "+value);  // print value
+			
+			if (right != null)  // print right
+				right.print();
+		}
+	}
+
+}

@@ -2,7 +2,8 @@ package Exercise5;
 
 public class Word implements Comparable {
 	private String word;
-
+	Word w;
+	
 	public Word(String str) { 
 		word = str;
 	}
@@ -45,26 +46,13 @@ public class Word implements Comparable {
 	@Override
 	public int compareTo(Object w) {
 		
-		
-			Word otherword = (Word)w;
-			int lengthWord = word.length();
 			
-			if(otherword.getLength() == lengthWord)
-			{
-				return 0;
-			}
-			else{
-				int diff = otherword.getLength() - lengthWord;
-				return diff;
-			}
+			return w.toString().toLowerCase().compareTo(this.word.toLowerCase());
+			
 		
 		
-		//"compares two words lexicographically"}
 	}
 	
-	public int getLength()
-	{	int length = word.length();
-		return length;
-	}
+	
 }
 	

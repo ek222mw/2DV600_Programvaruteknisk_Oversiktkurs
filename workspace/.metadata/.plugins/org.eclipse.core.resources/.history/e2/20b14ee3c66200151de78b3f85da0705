@@ -1,0 +1,49 @@
+package Exercise5;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class WordCount1Main {
+	public static void main(String[] args)
+	{
+		ArrayList<Word> list = new ArrayList<Word>();
+		Scanner s;
+		//ArrayList<Word> list = new ArrayList<Word>();
+		try {
+			s = new Scanner(new File("C:/Users/Emil/Desktop/test2.txt"));
+			
+			Set<Word> hashSet = new HashSet<Word>();
+			Set<Word> treeSet = new TreeSet<Word>(Collections.reverseOrder());
+			
+			while (s.hasNext()){
+				Word next = new Word(s.next().toLowerCase());
+				hashSet.add(next);
+				treeSet.add(next);
+			}
+			s.close();
+		    Iterator it =treeSet.iterator();
+		    
+		    while(it.hasNext()){
+		    	Object o = it.next();
+		    	System.out.println(o);
+		    }
+		    System.out.println(hashSet.size());
+		    System.out.printlnt(treeSet.size());
+		}
+			catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+		}
+	
+	
+	}
+}

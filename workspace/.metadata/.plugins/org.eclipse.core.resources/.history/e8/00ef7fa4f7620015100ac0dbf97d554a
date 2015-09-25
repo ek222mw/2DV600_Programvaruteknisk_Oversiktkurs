@@ -1,0 +1,105 @@
+package Exercise5;
+
+import java.util.Iterator;
+
+public class TreeWordSet implements WordSet {
+	
+	private BST root = null;
+	private int size = 0;
+	
+	@Override
+	public Iterator iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void add(Word word) {
+		if (root==null) 
+			root = new BST(word);
+		else
+			root.add(word);
+		
+	}
+
+	@Override
+	public boolean contains(Word word) {
+		if (root==null) 
+			return false;
+		else
+			return root.contains(word);
+	}
+
+	@Override
+	public int size() {
+		
+		return size;
+	}
+	
+	private class BST {
+		Word value;
+		BST left = null;
+		BST right = null;
+		
+		BST(Word val) {
+			value = val;
+		}
+		
+		void add(Word n) {
+			if (n.compareTo(value) <0) {  // add to left branch
+				if (left == null)
+				{
+					left = new BST(n);
+					size++;
+					
+				}
+				else
+				{
+					left.add(n);
+					
+				}
+			}
+			else if (n.compareTo(value)> 0) { // add to right branch
+				if (right == null)
+				{
+					right = new BST(n);
+					size++;
+				}
+				else
+				{
+					right.add(n);
+				}
+					
+			}
+		}
+		
+		boolean contains(Word n) {
+			if (n.compareTo(value)< 0) {  // search left branch
+				if (left == null)
+					return false;
+				else
+					return left.contains(n);
+			}
+			else if (n.compareTo(value)> 0) { // search right branch
+				if (right == null)
+					return false;
+				else
+					return right.contains(n);
+			}
+			return true;   // Found!
+		}
+		
+		
+		
+		void print() {
+			if (left != null)  // print left
+				left.print();
+			
+			System.out.print(" "+value);  // print value
+			
+			if (right != null)  // print right
+				right.print();
+		}
+	}
+
+}

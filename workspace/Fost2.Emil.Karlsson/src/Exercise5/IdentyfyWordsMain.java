@@ -10,37 +10,47 @@ import java.util.Scanner;
 
 public class IdentyfyWordsMain {
 	
+	
 	public static void main(String[] args)
 	{
 		
-		File file = new File("C:\\Users\\Emil\\Desktop\\HistoryOfProgramming.txt");
-		
+		ArrayList<String> Alist = new ArrayList<String>();
 		try {
-			Scanner filescan = new Scanner(file);
-			ArrayList<String> list = new ArrayList<String>();
-			while(filescan.hasNext())
-			{
-				String scan = filescan.next().replaceAll("[^a-zA-Z\n]","");
-				list.add(scan);
+			File file = new File("C:\\Users\\Emil\\Desktop\\HistoryOfProgramming.txt");
+			Scanner	filescan = new Scanner(file);
+			while (filescan.hasNextLine()){
+				
+				String t = filescan.nextLine();
+				String t2 = t.replaceAll("\\-", " ");
+				String rep = t2.replaceAll("[^a-zA-Z\n ]", "");
+				rep = rep.replaceAll("\\s+", " ");
+				
+				if(!rep.toString().isEmpty()){
+					Alist.add(rep+"\n");
+				}
 			}
 			filescan.close();
-			try {
-				FileWriter filewriter = new FileWriter("C:\\Users\\Emil\\Desktop\\words.txt");
-					
-			    filewriter.write(list.toString().replace(",","").replace("[", "").replace("]", "").replace("  ", " ").trim());
-				filewriter.close();
+		
+		try {
+			
+			FileWriter	fwriter = new FileWriter("C:\\Users\\Emil\\Desktop\\words.txt");
+		
+			for(String item: Alist) {
+			  fwriter.write(item);
 			}
-			catch (IOException e) {
-				// TODO Auto-generated catch block
+			fwriter.close();
+		}
+		catch (IOException e) {
+				
 				e.printStackTrace();
-			}
+		}
+		}
+		catch (FileNotFoundException e) {
 			
-			
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	
+		
 		
 		
 		

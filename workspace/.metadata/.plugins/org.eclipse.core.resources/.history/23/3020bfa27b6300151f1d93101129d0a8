@@ -1,0 +1,161 @@
+package Exercise5;
+
+import java.util.Iterator;
+
+public class TreeWordSet implements WordSet {
+	
+	private BST root = null;
+	private int size;
+	
+	@Override
+	public Iterator iterator() {
+		// TODO Auto-generated method stub
+		return new SetIterator();
+	}
+
+	@Override
+	public void add(Word word) {
+		if (root==null) 
+			root = new BST(word);
+		else
+		{
+			root.add(word);
+		}
+		size++;
+		
+	}
+
+	@Override
+	public boolean contains(Word word) {
+		if (root==null) 
+			return false;
+		else
+			return root.contains(word);
+	}
+
+	@Override
+	public int size() {
+		
+		return size;
+	}
+	
+	
+	private class BST {
+		Word value;
+		BST left = null;
+		BST right = null;
+		BST parent = null;
+		BST(Word val) {
+			value = val;
+		}
+		
+		void add(Word n) {
+			if (n.compareTo(value) <0) {  // add to left branch
+				if (left == null)
+				{
+					left = new BST(n);
+				}
+				else
+				{
+					left.add(n);
+				}
+			}
+			else if (n.compareTo(value)> 0) { // add to right branch
+				if (right == null)
+				{
+					right = new BST(n);	
+				}
+				else
+				{
+					right.add(n);
+				}
+					
+			}
+		}
+		
+		boolean contains(Word n) {
+			if (n.compareTo(value)< 0) {  // search left branch
+				if (left == null)
+					return false;
+				else
+					return left.contains(n);
+			}
+			else if (n.compareTo(value)> 0) { // search right branch
+				if (right == null)
+					return false;
+				else
+					return right.contains(n);
+			}
+			return true;   // Found!
+		}
+		
+		
+		
+		Word next() {
+			
+			
+			if (left != null)
+			{
+				parent.left;
+			}
+			else if(right != null)
+			{
+				parent.right;
+			}
+			 else {
+			        // We've just visited a leaf node.
+			        // Go back up the tree until we find a node
+			        // with a right child that we haven't seen yet.
+			        Node parent = nextNode.parent;
+			        Node child = nextNode;
+			        while (parent != null &&
+			            (parent.right == child || parent.right == null)) {
+			          child = parent;
+			          parent = parent.parent;
+			            }
+
+			        if (parent == null)
+			          nextNode = null;  // the traversal is complete
+			        else
+			          nextNode = parent.right;
+			      }
+			
+			
+			
+			
+			
+			
+			
+			return null;
+			
+		}
+	}
+	private class SetIterator implements Iterator<Word> {
+
+		
+		public SetIterator()
+		{
+			
+		}
+		
+		@Override
+		public boolean hasNext() {
+			if(root != null)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		@Override
+		public Word next() {
+			
+			return root.next();
+			
+		}
+		
+	}
+	
+	
+
+}

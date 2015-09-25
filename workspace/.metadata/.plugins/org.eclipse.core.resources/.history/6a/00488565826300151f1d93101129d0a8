@@ -1,0 +1,36 @@
+package Exercise5;
+
+import java.util.Iterator;
+
+public class Test {
+	
+	public static void main(String[] args)
+	{
+		
+		//HashWordSet test
+		HashWordSet hws = new HashWordSet();
+		hws.add(new Word("hej"));
+		System.out.println(hws.size());
+		System.out.println(hws.contains(new Word("hej")));
+		Iterator it = hws.iterator();
+		while(it.hasNext())
+		{
+			System.out.println("Value: "+it.next());
+		}
+		
+		
+		//TreeWordSet test
+		TreeWordSet tws = new TreeWordSet();
+		tws.add(new Word("hej"));
+		tws.add(new Word("hejsan"));
+		System.out.println("Size: "+tws.size());
+		System.out.println("Contains: "+tws.contains(new Word("hej")));
+		Iterator ittree = tws.iterator();
+		if(ittree.hasNext())
+		{
+			System.out.println(ittree.next());
+		}
+		//System.out.println("Value"+tws.)
+	}
+
+}

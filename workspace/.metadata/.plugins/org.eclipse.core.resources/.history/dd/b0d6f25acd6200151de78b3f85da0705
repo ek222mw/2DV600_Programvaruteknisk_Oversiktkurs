@@ -1,0 +1,59 @@
+package Exercise5;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class IdentyfyWordsMain {
+	
+	
+	public static void main(String[] args)
+	{
+		
+		ArrayList<String> list = new ArrayList<String>();
+		try {
+			File file = new File("C:\\Users\\Emil\\Desktop\\HistoryOfProgramming.txt");
+			Scanner	filescan = new Scanner(file);
+			while (filescan.hasNextLine()){
+				
+				String t = filescan.nextLine();
+				String t2 = t.replaceAll("\\-", " ");
+				String rep = t2.replaceAll("[^A-Za-z\n ]", "");
+				rep = rep.replaceAll("\\s+", " ");
+				
+				if(!rep.toString().isEmpty()){
+					list.add(rep+"\n");
+				}
+			}
+			filescan.close();
+		
+		try {
+			
+			FileWriter	writer = new FileWriter("C:\\Users\\Emil\\Desktop\\words.txt");
+		
+			for(String item: list) {
+			  writer.write(item);
+			}
+			writer.close();
+		}
+		catch (IOException e) {
+				
+				e.printStackTrace();
+		}
+		}
+		catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
+		}
+	
+		
+		
+		
+		
+	}
+
+}

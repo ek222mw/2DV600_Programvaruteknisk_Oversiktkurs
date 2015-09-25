@@ -1,0 +1,20 @@
+package Exercise5;
+
+import java.util.Iterator;
+
+public class Test {
+	
+	public static void main(String[] args)
+	{
+		HashWordSet hws = new HashWordSet();
+		hws.add(new Word("hej"));
+		System.out.println(hws.size());
+		System.out.println(hws.contains(new Word("hej")));
+		Iterator it = hws.iterator();
+		while(it.hasNext())
+		{
+			System.out.println("Value: "+it.next());
+		}
+	}
+
+}

@@ -1,0 +1,12 @@
+package Exercise5;
+
+public class Test {
+	
+	public static void main(String[] args)
+	{
+		HashWordSet hws = new HashWordSet();
+		hws.add(new Word("hej"));
+		System.out.println(hws.size());
+	}
+
+}
