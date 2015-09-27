@@ -1,19 +1,24 @@
 package Exercise2;
 
 public class Bicycle extends Vehicle {
-	
+	//public constant int fields.
 	public final int space = 1;
 	public final int fee = 40;
-	
+	//bicycle constructor.
 	public Bicycle(int id)
 	{
 		int bicycles = 1;
 		
-		
+		//sets id
 		setID(id);
+		//sets size
 		setSize(space);
+		//sets fee.
 		setFee(fee);
+		//adds passenger that are always equal to 1.
 		setBicyclePassenger(bicycles);
+		//sets vehicle counter.
+		setTotVehicles(1);
 		 
 		
 	}

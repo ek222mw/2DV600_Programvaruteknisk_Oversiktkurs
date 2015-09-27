@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="QueueTest" project="Fost2.Emil.Karlsson" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="Exercise4.QueueTest" time="0.299">
+    <testcase name="Test" classname="Exercise4.QueueTest" time="0.296"/>
+    <testcase name="testIndexOutOfBoundsException1" classname="Exercise4.QueueTest" time="0.0"/>
+    <testcase name="testIndexOutOfBoundsException2" classname="Exercise4.QueueTest" time="0.0"/>
+    <testcase name="testIndexOutOfBoundsException3" classname="Exercise4.QueueTest" time="0.002"/>
+  </testsuite>
+</testrun>

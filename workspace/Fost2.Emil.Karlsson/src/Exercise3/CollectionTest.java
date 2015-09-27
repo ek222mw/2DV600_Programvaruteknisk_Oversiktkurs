@@ -7,7 +7,7 @@ public class CollectionTest  {
 	
 	@Test
 	public void testMulty()
-	{
+	{	//new instances of classes.
 		ArrayIntList ail = new ArrayIntList();
 		ArrayIntStack ais = new ArrayIntStack();
 		//List test.

@@ -3,23 +3,22 @@ package Exercise5;
 import java.util.Iterator;
 
 public class HashWordSet implements WordSet {
-
+	//fields.
 	private int size;
-	private Node[] buckets = new Node[3];
+	private Node[] bckts = new Node[3];
 	
-	
+	//iterator
 	@Override
 	public Iterator iterator() {
 		
-		
 		return new SetIterator();
 	}
-
+	//adds word.
 	@Override
 	public void add(Word word) {
 		
 		int position = getBckNbr(word);  
-		Node node = buckets[position];
+		Node node = bckts[position];
 		
 		while (node != null) {
 			if (node.val.equals(word))   					
@@ -28,15 +27,15 @@ public class HashWordSet implements WordSet {
 				node = node.next;
 		}
 		node = new Node(word);
-		node.next = buckets[position];
-		buckets[position] = node;
+		node.next = bckts[position];
+		bckts[position] = node;
 		size++;
 		
-		if (size == buckets.length)
+		if (size == bckts.length)
 			rehash();
 		
 	}
-	
+	//help class node.
 	private class Node {
 		Word val;
 		Node next = null;
@@ -51,38 +50,44 @@ public class HashWordSet implements WordSet {
 			return val.toString();
 		}		
 	}
-	
+	//private class SetIterator who help to iterate out all words in textfile.
 	private class SetIterator implements Iterator<Word> {
-		
+		//word array
 		Word[] words;
-		
+		//init pos.
 		int position = 0;
+		//constructor
 		public SetIterator() {
-			
+			//sets array to length size.
 			words = new Word[size];
 			int number = 0;
-			for (int i=0;i<buckets.length;i++) {
-				Node node = buckets[i];
+			for (int i=0;i<bckts.length;i++) {
+				//puts in buckets value in node.
+				Node node = bckts[i];
+				//while node not null
 				while (node != null) {
+					//set in node value in word array and then count number.
 					words[number++] = node.val;
+					//go to next.
 					node = node.next;
 				}
 			}
 		}
 
-		
+		//if has next then return true else false.
 		public boolean hasNext() {			
 			return position < words.length;
 		}
-		
+		//returns next word and increase pos with 1.
 		public Word next() {
 			return words[position++];
 		}
 	}
+	//if buckets full then rehash to double size.
 	private void rehash() {
 		size = 0;
-		Node[] tmp = buckets; 
-		buckets = new Node[2*tmp.length];  
+		Node[] tmp = bckts; 
+		bckts = new Node[2*tmp.length];  
 		
 		for (Node node : tmp) {   
 			if (node == null) continue;
@@ -92,18 +97,18 @@ public class HashWordSet implements WordSet {
 			}
 		}
 	}
-	
+	//gets bucket number in hashform.
 	private int getBckNbr(Word w) {
 		int hash = w.hashCode();
 		if (hash < 0)
 			hash = -hash;
-		return hash % buckets.length;	
+		return (hash % bckts.length);	
 	}
-
+	//checks if buckets contains inputed value.
 	@Override
 	public boolean contains(Word word) {
 		int position = getBckNbr(word);
-		Node node = buckets[position];
+		Node node = bckts[position];
 		
 		while (node != null) {
 			if (node.val.equals(word))   					
@@ -114,11 +119,31 @@ public class HashWordSet implements WordSet {
 		
 		return false;
 	}
-
+	//returns size.
 	@Override
 	public int size() {
 	
 		return size;
+	}
+	//returns a printable string.
+	@Override
+	public String toString()
+	{
+		StringBuffer strbuf = new StringBuffer();
+		for (int i=0;i<bckts.length;i++) {
+			Node n = bckts[i];
+			if (n == null) continue;
+			strbuf.append("Bucket "+i+":");
+			while (n != null) {
+				strbuf.append(" "+n.val);
+				n = n.next;
+			}
+			strbuf.append("\n");
+		}
+		return strbuf.toString();
+
+		
+		
 	}
 
 }

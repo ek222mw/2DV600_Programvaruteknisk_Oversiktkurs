@@ -6,16 +6,16 @@ import java.util.Iterator;
 
 
 public class FerryClass implements Ferry {
-
+	//fields.
 	public final int max_passenger = 200;
 	public final int max_cars = 40;
 	public final int max_space = 200;
 	ArrayList<Vehicle> vehiclelist = new ArrayList<>();
 	ArrayList<Passenger> passlist = new ArrayList<>();
-	private int moneyearn = 0;
 	private int id = 0;
 	private QueueHelper startVal;
 	
+	//counts passengers.
 	@Override
 	public int countPassengers() {
 		int passenger = 0;
@@ -23,7 +23,6 @@ public class FerryClass implements Ferry {
 		{
 			
 			passenger += vehiclelist.get(i).getPassenger();
-			//vehiclelist.get(i).setPassenger(passenger,vehiclelist.get(i).getPassengerfee());
 			
 		}
 		
@@ -31,27 +30,26 @@ public class FerryClass implements Ferry {
 		for(int i=0; i<passlist.size();i++)
 		{
 			passenger += passlist.get(i).getPassengers();
-			//passlist.get(i).addPassengers(passenger,passlist.get(i).fee);
 			
 		}
+		
 		return passenger;
 	}
-
+	
+	
+	//counts vehicle space.
 	@Override
 	public int countVehicleSpace() {
 		int count=0;
 		for(int i=0; i<vehiclelist.size();i++)
 		{
 			count += vehiclelist.get(i).getSize();
-			vehiclelist.get(i).setSize(count);
-			
-			
 		}
 		
 		
 		return count;
 	}
-
+	//counts money.
 	@Override
 	public int countMoney() {
 		int money = 0;
@@ -68,7 +66,7 @@ public class FerryClass implements Ferry {
 		
 		return money;
 	}
-
+	//iterates and returns vehicles.
 	@Override
 	public Iterator iterator() {
 		return new Iterator(){
@@ -92,13 +90,13 @@ public class FerryClass implements Ferry {
 				return queueCurr.getD();
 			}};
 	}
-
+	//embarks vehicle on ferry
 	@Override
 	public void embark(Vehicle v) {
 		boolean goOn = true;
 		for(int i = 0; i<vehiclelist.size();i++)
 		{
-			
+			//checks if id already embarked on ferry if not then embark.
 			if(vehiclelist.get(i).getID() == v.getID())
 			{
 				goOn = false;
@@ -125,7 +123,7 @@ public class FerryClass implements Ferry {
 		}
 		
 	}
-
+	//embarks passengers.
 	@Override
 	public void embark(Passenger p) {
 		
@@ -134,29 +132,30 @@ public class FerryClass implements Ferry {
 			passlist.add(p);
 		}
 		
+		
 	}
-
+	//disembarks passengers and vehicles lists.
 	@Override
 	public void disembark() {
-		moneyearn = countMoney();
+		
 		passlist.clear();
 		vehiclelist.clear();
 		
 		
 	}
-
+	//checks if space for more vehicles.
 	@Override
 	public boolean hasSpaceFor(Vehicle v) {
 	
 		
-		if(v.getTotSpace() <= max_space)
+		if(countVehicleSpace() <= max_space)
 		{
 			return true;
 		}
 		
 		return false;
 	}
-
+	//checks if room for more passengers.
 	@Override
 	public boolean hasRoomFor(Passenger p) {
 		
@@ -168,13 +167,43 @@ public class FerryClass implements Ferry {
 		
 		return false;
 	}
-	
+	//generates id for vehicles.
 	public int generateID()
 	{	
 		id = id +1;
 		return id;
 	}
+	@Override
+	public String toString()
+	{   int passenger = 0;
+		int vehicles = 0;
+		for(int i=0; i<vehiclelist.size();i++)
+		{
+			
+			passenger += vehiclelist.get(i).getPassenger();
+			
+		}
+		
+		
+		for(int i=0; i<passlist.size();i++)
+		{
+			passenger += passlist.get(i).getPassengers();
+			
+		}
+		
+		for(int i=0; i<vehiclelist.size();i++)
+		{
+			vehicles += vehiclelist.get(i).getTotVehicles();
+		}
+		
+		
+		String str = "Tot Passengers embarked: "+passenger+", Tot Vehicles embarked: "+vehicles+" \n";
+		return str;
+		
+	}
 	
+	
+	//help class for iterating out vehicles.
 	 private class QueueHelper {
 	        //fields.
 	        QueueHelper qHelper;

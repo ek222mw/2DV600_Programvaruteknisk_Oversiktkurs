@@ -1,0 +1,267 @@
+package Exercise2;
+
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class FerryMain {
+	//fields who is help counters to see if inputed values are larger then max values in ferryclass.
+	public static int countPassengers;
+	public static int countSpace;
+	//field, help money counter.
+	public static int countMoney;
+	public static void main(String[] args)
+	{	
+		
+		FerryClass fc = new FerryClass();
+		
+	
+		boolean i = true;
+		
+		try{
+			//scans keyboard input.
+			Scanner scan = new Scanner(System.in);
+		while(i)
+		{
+			System.out.println("Press 1 to add vehicles or passengers \n"
+					+"Press 2 to show used Space \n"
+					+"Press 3 to show passenger count \n"
+					+"Press 4 to show total money earned \n"
+					+"Press 5 to show all vehicles \n"
+					+"Press 6 to disembark \n"
+					+"Press 7 to do toString to see ferry status");
+			int input = scan.nextInt();
+			switch(input)
+			{
+					
+					
+				
+				case 1:
+				{	
+					System.out.println("Enter 1 to add car \n"
+							+ "Enter 2 to add bus \n"
+							+ "Enter 3 to add lorry \n"
+							+ "Enter 4 to add bicycle \n"
+							+ "Enter 5 to add passengers without vehicle");
+					//scans next int value.
+					input = scan.nextInt();
+					switch(input)
+					{
+						
+						case 1:
+						{
+							System.out.println("Enter number of passengers");
+							//input passenger
+							int passenger = scan.nextInt();
+							//get countedpassengers from ferryclass
+							int ct = fc.countPassengers();
+							//get vehicle space and adds another vehicle.
+							int cs = (fc.countVehicleSpace()+5);
+							//counts passengers
+							countPassengers += (passenger+ct);
+							//counts space.
+							countSpace = cs;
+							//pre checks if room for more passengers.
+							if(countPassengers <= 200)
+							{	//pre checks if space for more vehicles
+								if(countSpace <= 200)
+								{	//adds new car with additional passengers and generates an id.
+									Car c = new Car(passenger,fc.generateID());
+									//embarks car on ferry.
+									fc.embark(c);
+								}
+								else
+								{
+									System.out.println("Error no more space!");
+								}
+							}
+							else
+							{
+								System.out.println("Error can't embark so much passengers!");
+							}
+							
+							break;
+							
+						}
+						case 2:
+						{
+							System.out.println("Enter number of passengers");
+							int passenger = scan.nextInt();
+							//gets passengers from vehicle.
+							int ct = fc.countPassengers();
+							//gets vehicle space count and adds another to see if space for more.
+							int cs = (fc.countVehicleSpace()+20);
+							countPassengers += (passenger+ct);
+							countSpace = cs;
+							//pre checks if room for more passengers.
+							if(countPassengers <= 200)
+							{	//pre checks if more space is avaible for another vehicles.
+								if(countSpace <= 200)
+								{	//creates new bus object and adds passenger and generates an id.
+									Bus b = new Bus(passenger,fc.generateID());
+									fc.embark(b);
+								}
+								else
+								{
+									System.out.println("Error no more space!");
+								}
+							}
+							else
+							{
+								System.out.println("Error can't embark so much passengers!");
+							}
+							break;
+						}
+						case 3:
+						{
+							//same procedure as car and bus.
+							System.out.println("Enter number of passengers");
+							int passenger = scan.nextInt();
+							int ct = fc.countPassengers();
+							int cs = (fc.countVehicleSpace()+40);
+							countPassengers += (passenger+ct);
+							countSpace = cs;
+							if(countPassengers <= 200)
+							{
+								if(countSpace <= 200)
+								{
+									Lorry l = new Lorry(passenger,fc.generateID());
+									fc.embark(l);
+								}
+								else
+								{
+									System.out.println("Error no more space!");
+								}
+							}
+							else
+							{
+								System.out.println("Error can't embark so much passengers!");
+							}
+							
+							break;
+						}
+						case 4:
+						{
+							//same procedure as car and bus.
+							int passenger = 1;
+							int ct = fc.countPassengers();
+							int cs = (fc.countVehicleSpace()+1);
+							countPassengers += (passenger+ct);
+							countSpace = cs;
+							if(countPassengers <= 200)
+							{
+								if(countSpace <= 200)
+								{
+									Bicycle b = new Bicycle(fc.generateID());
+									fc.embark(b);
+								}
+								else
+								{
+									System.out.println("Error no more space!");
+								}
+							}
+							else
+							{
+								System.out.println("Error can't embark more passengers!");
+							}
+							break;
+						}
+						case 5:
+						{
+							//adds separate passengers.
+							System.out.println("Enter number of passengers");
+							int passenger = scan.nextInt();
+							//new passenger object
+							Passenger p = new Passenger();
+							//adds passenger with fee
+							p.addPassengers(passenger,p.fee);
+							//gets passengers
+							int pass = p.getPassengers();
+							countPassengers += pass;
+							//pre checks if can embark more passengers.
+							if(countPassengers <= 200)
+							{	//embarks passengers.
+								fc.embark(p);
+							}
+							else
+							{
+								System.out.println("Error can't embark so much passengers!");
+							}
+							
+							break;
+						}
+						default:
+						{
+							break;
+						}
+					}
+				}
+				break;
+				case 2:
+				{	//prints used vehicle space
+					int count = fc.countVehicleSpace();
+					System.out.println("Space: "+count+"\n");
+					break;
+				}
+				case 3:
+				{	//prints embarked passengers.
+					int passcount = fc.countPassengers();
+					System.out.println("Passengers: "+passcount+"\n");
+					break;
+				}
+				case 4:
+				{
+					//prints earned money.
+					int money = fc.countMoney();
+					countMoney += money;
+					System.out.println("Money: "+countMoney+"\n");
+					break;
+				}
+				case 5:
+				{
+					//iterates and prints out all vehicles.
+					Iterator it = fc.iterator();
+					it = fc.vehiclelist.iterator();
+					while (it.hasNext()) {
+						String line = it.next().getClass().getName();
+						String[] nwline = line.split("\\.");
+						System.out.println("Vehicle: "+nwline[1]);
+						
+					}
+					break;
+				}
+				case 6:
+				{
+					//disembarks vehicle and passengers.
+					fc.disembark();
+					
+				}
+				case 7:
+				{	//prints toString to see ferry status.
+					System.out.println(fc.toString());
+				}
+				default:
+				{
+					break;
+				}
+				
+			}
+			
+		}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}	
+
+}

@@ -13,3 +13,34 @@
 1443193046252	Rename local variable 'n'
 1443193201159	Rename method 'getBucketNumber'
 1443193298195	Rename field 'value'
+1443275631811	Rename field 'count'
+1443290474735	Delete element
+1443290480850	Delete element
+1443290487016	Delete element
+1443290496375	Delete element
+1443290502349	Delete element
+1443290507017	Delete element
+1443290528370	Copy compilation units
+1443292796791	Copy compilation unit
+1443292813244	Copy compilation unit
+1443292831138	Copy compilation unit
+1443294952605	Rename field 'fringe'
+1443295171920	Rename type 'IntStack'
+1443295382868	Rename type 'AbstractIntCollection'
+1443295506297	Rename field 'values'
+1443295694863	Rename type 'IntIterator'
+1443299401834	Rename type 'ArrayIntStack'
+1443347567257	Rename local variable 'hash'
+1443347618926	Rename local variable 'tree'
+1443352890060	Rename local variable 'buf'
+1443353174719	Rename field 'count'
+1443353748406	Rename field 'buckets'
+1443353864654	Rename local variable 'iterator'
+1443356040766	Delete element
+1443358071356	Rename method 'pushLeft'
+1443358124523	Rename local variable 'x'
+1443358316653	Rename local variable 'x'
+1443358469513	Rename local variable 'hc'
+1443369023729	Rename local variable 'buf'
+1443369078112	Rename local variable 'buf'
+1443370033547	Rename local variable 'node'

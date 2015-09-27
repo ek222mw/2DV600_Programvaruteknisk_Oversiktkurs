@@ -1,0 +1,61 @@
+package Exercise5;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class WordCount1Main {
+	public static void main(String[] args)
+	{
+		
+		try {
+			File file = new File("C:\\Users\\Emil\\Desktop\\words.txt");
+			Scanner filescan = new Scanner(file);
+			
+			Set<Word> hash = new HashSet<Word>();
+			Set<Word> tree = new TreeSet<Word>(Collections.reverseOrder());
+			
+			while (filescan.hasNext()){
+				Word next = new Word(filescan.next().toLowerCase());
+				
+				tree.add(next);
+				hash.add(next);
+			}
+			filescan.close();
+		   System.out.println("Hash iterator: \n");
+		    //hash iterator
+		    Iterator ithash = hash.iterator();
+		    while(ithash.hasNext()){
+		    	
+		    	System.out.println(ithash.next());
+		    }
+		    
+		    System.out.println("Tree iterator: \n");
+		    Iterator ittree =tree.iterator();
+		    //tree iterator
+		    while(ittree.hasNext()){
+		    	Object o = ittree.next();
+		    	System.out.println(o);
+		    }
+		    //tree size
+		    System.out.println("Tree size: "+tree.size());
+		    
+		    //hash size
+		    System.out.println("Hash size: "+hash.size());
+		}
+			catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+		}
+	
+	
+	}
+}

@@ -1,0 +1,63 @@
+package Exercise5;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class Test {
+	
+	public static void main(String[] args)
+	{
+		
+		//HashWordSet test
+		HashWordSet hws = new HashWordSet();
+		//adding new word to HashWordSet.
+		hws.add(new Word("abc"));
+		hws.add(new Word("hej"));
+		//prints size.
+		System.out.println(hws.size());
+		//checks if hashWordSet contains word.
+		System.out.println(hws.contains(new Word("abc")));
+		//iterates through all added words and prints them.
+		Iterator it = hws.iterator();
+		while(it.hasNext())
+		{
+			System.out.println("Value: "+it.next());
+		}
+		
+		
+		//TreeWordSet test
+		TreeWordSet tws = new TreeWordSet();
+		
+		//file path to be scanned.
+		File file = new File("C:\\Users\\Emil\\Desktop\\word.txt");
+		try {
+			//scans file.
+			Scanner filescan = new Scanner(file);
+			//adds words in file.
+			while (filescan.hasNext()){
+				Word next = new Word(filescan.next().toLowerCase());
+				tws.add(next);
+			}
+			//prints size.
+			System.out.println("Size: "+tws.size());
+			//checks if contains word f.
+			System.out.println("Contains: "+tws.contains(new Word("f")));
+			//tree iterator
+			Iterator ittree = tws.iterator();
+			//prints while true
+			while(ittree.hasNext())
+			{
+				//prints words in alfabetic order.
+				System.out.println(ittree.next());
+			}
+		
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

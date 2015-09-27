@@ -1,0 +1,39 @@
+package Exercise5;
+
+import Exercise5.TreeWordSet.BST;
+
+public class ArrayBSTStack extends AbstractBSTCollection implements BSTStack {
+	//add method
+	@Override
+	public void push(BST n) {
+		//if length less than size or equal then resize.
+		if(bst_vals.length <= size)
+		{
+			resize();
+		}
+		//if length bigger than size then put in value and and increase size with 1.
+		if(bst_vals.length > size)
+		{
+			bst_vals[size++] = n;
+		}
+		
+			
+		
+	}
+	//remove method.
+	@Override
+	public BST pop() {
+		
+		 BST tmp = bst_vals[size - 1];
+		  bst_vals[size - 1] = null;
+		  size=size-1;
+		  return tmp;
+	}
+	//peek method
+	@Override
+	public BST peek() {
+		//return the top of stack
+		return bst_vals[size-1];
+	}
+
+}

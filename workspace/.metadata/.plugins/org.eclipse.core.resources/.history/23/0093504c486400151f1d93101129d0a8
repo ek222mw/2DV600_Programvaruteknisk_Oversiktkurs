@@ -1,0 +1,54 @@
+package Exercise2;
+
+public class Passenger {
+	
+	
+	private int countPassenger;
+	public final int fee = 20;
+	private int totalfee;
+	private boolean full = false;
+	
+	public Passenger(int passenger) {
+		
+		
+		
+	}
+	
+	public Passenger()
+	{
+		
+	}
+	
+	public boolean getMax()
+	{
+		return full;
+	}
+	
+
+	public int getPassengers()
+	{
+		return countPassenger;
+	}
+	
+	public int getPassengerFee()
+	{
+		return totalfee;
+	}
+	
+	public void addPassengers(int p, int fee)
+	{
+		int max = countPassenger+p;
+		
+		if(max <= 200)
+		{
+			countPassenger += p;
+			totalfee = (fee * p);
+		}
+		else
+		{
+			full = true;
+		}
+	}
+	
+	
+}

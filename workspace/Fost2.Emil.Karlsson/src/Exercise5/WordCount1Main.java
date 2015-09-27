@@ -17,29 +17,53 @@ public class WordCount1Main {
 	{
 		
 		try {
+			//file path
 			File file = new File("C:\\Users\\Emil\\Desktop\\words.txt");
 			Scanner filescan = new Scanner(file);
-			
+			//new instances.
 			Set<Word> hash = new HashSet<Word>();
 			Set<Word> tree = new TreeSet<Word>(Collections.reverseOrder());
-			
+			//scans file.
 			while (filescan.hasNext()){
 				Word next = new Word(filescan.next().toLowerCase());
-				
+				//adds words.
 				tree.add(next);
 				hash.add(next);
 			}
+			//close scanner.
 			filescan.close();
-		    Iterator iterator =tree.iterator();
-		    
-		    while(iterator.hasNext()){
-		    	Object o = iterator.next();
-		    	System.out.println(o);
+			//hash title
+		    System.out.println("*Hash iterator* \n");
+		    //hash iterator
+		    Iterator ithash = hash.iterator();
+		    while(ithash.hasNext()){
+		    	
+		    	System.out.println(ithash.next());
 		    }
-		    //System.out.println(hashSet.size());
-		    System.out.println(tree.size());
-		}
-			catch (FileNotFoundException e) {
+		    System.out.println("\n");
+		    //tree title
+		    System.out.println("*Tree iterator* \n");
+		    Iterator ittree =tree.iterator();
+		    //tree iterator
+		    while(ittree.hasNext()){
+		    	
+		    	System.out.println(ittree.next());
+		    }
+		    //prints tree size
+		    System.out.println("Tree size: "+tree.size());
+		    
+		    //prints hash size
+		    System.out.println("Hash size: "+hash.size());
+		    //prints, see if tree contains if does returns true else false;
+		    System.out.println("Tree contains: "+tree.contains(new Word("x")));
+		    //prints, see if hash contains if does returns true else false;
+		    System.out.println("Hash contains: "+hash.contains(new Word("x")));
+		    //prints tree toString.
+		    System.out.println("hash toString: "+hash.toString());
+		    //prints hash toString
+		    System.out.println("tree toString: "+tree.toString());
+		    //catches exception if file not found.
+		}catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 		}

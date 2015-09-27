@@ -1,0 +1,177 @@
+package Exercise5;
+
+import java.util.Iterator;
+
+public class TreeWordSet implements WordSet {
+	
+	private BST root = null;
+	private int size;
+	private int count;
+	private boolean l = true;
+	private boolean r = true;
+	
+	@Override
+	public Iterator iterator() {
+		
+		return new SetIterator();
+	}
+
+	@Override
+	public void add(Word word) {
+		if (root==null) 
+			root = new BST(word);
+		else
+		{
+			root.add(word);
+		}
+		size++;
+		
+	}
+	
+	public BST getRoot()
+	{
+		return root;
+	}
+
+	@Override
+	public boolean contains(Word word) {
+		if (root==null) 
+			return false;
+		else
+			return root.contains(word);
+	}
+
+	@Override
+	public int size() {
+		
+		return size;
+	}
+	
+	
+	private class BST {
+		Word value;
+		BST left = null;
+		BST right = null;
+		
+		BST(Word val) {
+			value = val;
+		}
+		
+		void add(Word word) {
+			// adding to left side
+			if (word.compareTo(value) <0) {  
+				if (left == null)
+				{
+					left = new BST(word);
+				}
+				else
+				{
+					left.add(word);
+				}
+			}
+			// adding to right side
+			else if (word.compareTo(value)> 0) { 
+				if (right == null)
+				{
+					right = new BST(word);	
+				}
+				else
+				{
+					right.add(word);
+				}
+					
+			}
+		}
+		
+		boolean contains(Word word) {
+			//searching on left side
+			if (word.compareTo(value)< 0) { 
+				if (left == null)
+					return false;
+				else
+					return left.contains(word);
+			}
+			 // searching on right side
+			else if (word.compareTo(value)> 0) {
+				if (right == null)
+					return false;
+				else
+					return right.contains(word);
+			}
+			
+			return true;  
+		}
+		
+		
+		
+		Word next() {
+				
+					if (left != null)
+					{
+						l = false;
+						
+						return value;
+					}
+					else if(left == null)
+					{	
+						r = true;
+						next();
+					}
+				
+			
+				
+					if(right != null && r)
+					{
+						r = false;
+						
+						return right.value;
+					}
+					else if(right == null)
+					{	//b = true;
+						r=false;
+						
+						next();
+					}
+				
+			
+			
+			return left.value;
+			
+		}
+	}
+	private class SetIterator implements Iterator<Word> {
+
+		
+		public SetIterator()
+		{
+			
+		}
+		
+		@Override
+		public boolean hasNext() {
+			count++;
+				
+				if(count<=size)
+				{
+					return true;
+				}
+				
+				
+			
+			return false;
+			
+			
+		}
+
+		@Override
+		public Word next() {
+			
+			return root.next();
+			
+		}
+		
+	}
+	
+	
+
+}

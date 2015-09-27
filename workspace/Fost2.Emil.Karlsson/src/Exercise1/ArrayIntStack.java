@@ -1,13 +1,15 @@
 package Exercise1;
 
 public class ArrayIntStack extends AbstractIntCollection implements IntStack {
-
+	//add method
 	@Override
 	public void push(int n) {
+		//if length less than size or equal then resize.
 		if(values.length <= size)
 		{
 			resize();
 		}
+		//if length bigger than size then put in value and and increase size with 1.
 		if(values.length > size)
 		{
 			values[size++] = n;
@@ -16,25 +18,19 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack {
 			
 		
 	}
-
+	//remove method.
 	@Override
 	public int pop() {
-		
-		int tmp = values[size-1];
-		values[size-1] = 0; 
-		
-		size =size-1;
-		System.arraycopy(values,size+1,values,size,values.length-1-size);
-		int[] tmparr = new int[values.length-1];
-		System.arraycopy(values,0,tmparr,0,values.length-1); 
-		values = tmparr;
-		
-		return tmp;
+		  int arrsize = size -1;
+		  int tmp = values[arrsize];
+		  values[arrsize] = 0;
+		  size =arrsize;
+		  return tmp;
 	}
-
+	//peek method
 	@Override
 	public int peek() {
-		
+		//return the top of stack
 		return values[size-1];
 	}
 

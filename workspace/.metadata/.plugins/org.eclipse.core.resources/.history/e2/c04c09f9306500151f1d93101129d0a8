@@ -1,0 +1,170 @@
+package Exercise5;
+
+import java.util.Iterator;
+
+public class TreeWordSet implements WordSet {
+	
+	private BST root = null;
+	private int size;
+	
+	//tree iterator
+	@Override
+	public Iterator iterator() {
+		
+		return new SetIterator();
+	}
+	//adds words.
+	@Override
+	public void add(Word word) {
+		if (root==null) 
+		{
+			root = new BST(word);
+			size++;
+		}
+		else
+		{
+			root.add(word);
+			
+		}
+	}
+	//checks if contains word if true, return true else false.
+	@Override
+	public boolean contains(Word word) {
+		if (root==null) 
+			return false;
+		else
+			return root.contains(word);
+	}
+	//returns size.
+	@Override
+	public int size() {
+		
+		return size;
+	}
+	
+	//helper class,Binary search tree nodes.
+	public class BST {
+		Word value;
+		BST left = null;
+		BST right = null;
+		
+		BST(Word val) {
+			value = val;
+		}
+		
+		void add(Word word) {
+			// adding to left side
+			if (word.compareTo(value) <0) {  
+				if (left == null)
+				{
+					left = new BST(word);
+					size++;
+				}
+				else
+				{
+					
+					left.add(word);
+				}
+			}
+			// adding to right side
+			else if (word.compareTo(value)> 0) { 
+				if (right == null)
+				{
+					right = new BST(word);
+					size++;
+				}
+				else
+				{
+					right.add(word);
+				}
+					
+			}
+		}
+		
+		boolean contains(Word word) {
+			//searching on left side
+			if (word.compareTo(value)< 0) { 
+				if (left == null)
+					return false;
+				else
+					return left.contains(word);
+			}
+			 // searching on right side
+			else if (word.compareTo(value)> 0) {
+				if (right == null)
+					return false;
+				else
+					return right.contains(word);
+			}
+			
+			return true;  
+		}
+		
+	}
+	//tree iterator helper class.
+	private class SetIterator implements Iterator<Word> {
+		//new instance.
+		private ArrayBSTStack NodeStack = new ArrayBSTStack();
+		//constructor
+		public SetIterator()
+		{	//adds in left side
+			addLeft(root); 
+			
+		}
+		//adds on left side.
+		 private void addLeft(BST bst)
+	      {	 //while bst not null
+	         while (bst != null)
+	         {	//adds
+	            NodeStack.push(bst);
+	            //bts equals bst.right;
+	            bst = bst.right;
+	         }
+	      }
+		//if hade more elements, then return true else false.
+		@Override
+		public boolean hasNext() {
+			
+			return !NodeStack.isEmpty();
+		}
+		//returns next element.
+		@Override
+		public Word next() {
+			//throws exception if run out of elements.
+		 	if (!hasNext ( )) {
+	            try {
+					throw new Exception("tree is out of elements");
+				} catch (Exception e) {
+					
+					e.printStackTrace();
+				}
+	        }
+		 	 //removes element
+	         BST bst = NodeStack.pop();
+	         //adds bst.left to add left method.
+	         addLeft(bst.left);
+	         //returns word.
+	         return bst.value;
+	 
+		}
+		
+		
+	}
+	@Override
+	public String toString()
+	{
+		Iterator it = iterator();
+		StringBuffer strbuf = new StringBuffer();
+		while (it.hasNext())
+		{
+			strbuf.append(it.next().toString()+", ");
+		}
+		return strbuf.toString();
+		
+	}
+	
+	
+	
+	
+
+}

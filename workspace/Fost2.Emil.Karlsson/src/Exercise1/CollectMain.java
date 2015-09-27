@@ -18,11 +18,11 @@ public class CollectMain{
 		it.add(8);
 		
 		//removes
-		//it.remove(3);
+		it.remove(3);
 		//adds integer at given position.
 		it.addAt(5, 1);
 		//prints index of given value.
-		System.out.println(it.indexOf(1));
+		System.out.println("Indexof: "+it.indexOf(1));
 		
 		//Stack
 		//adds to the stack
@@ -33,9 +33,9 @@ public class CollectMain{
 		is.push(5);
 		
 		//removes last added integer and returns the value of it.
-		System.out.println(is.pop());
+		System.out.println("pop value: "+is.pop());
 		//peek at last added integer.
-		System.out.println(is.peek());
+		System.out.println("peek value: "+is.peek());
 	}
 
 }

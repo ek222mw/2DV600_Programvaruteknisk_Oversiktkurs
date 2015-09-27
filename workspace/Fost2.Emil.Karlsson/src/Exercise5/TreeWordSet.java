@@ -6,33 +6,28 @@ public class TreeWordSet implements WordSet {
 	
 	private BST root = null;
 	private int size;
-	private int count;
-	private boolean l = true;
-	private boolean r = true;
 	
+	//tree iterator
 	@Override
 	public Iterator iterator() {
 		
 		return new SetIterator();
 	}
-
+	//adds words.
 	@Override
 	public void add(Word word) {
 		if (root==null) 
+		{
 			root = new BST(word);
+			size++;
+		}
 		else
 		{
 			root.add(word);
+			
 		}
-		size++;
-		
 	}
-	
-	public BST getRoot()
-	{
-		return root;
-	}
-
+	//checks if contains word if true, return true else false.
 	@Override
 	public boolean contains(Word word) {
 		if (root==null) 
@@ -40,15 +35,15 @@ public class TreeWordSet implements WordSet {
 		else
 			return root.contains(word);
 	}
-
+	//returns size.
 	@Override
 	public int size() {
 		
 		return size;
 	}
 	
-	
-	private class BST {
+	//helper class,Binary search tree nodes.
+	public class BST {
 		Word value;
 		BST left = null;
 		BST right = null;
@@ -63,9 +58,11 @@ public class TreeWordSet implements WordSet {
 				if (left == null)
 				{
 					left = new BST(word);
+					size++;
 				}
 				else
 				{
+					
 					left.add(word);
 				}
 			}
@@ -73,7 +70,8 @@ public class TreeWordSet implements WordSet {
 			else if (word.compareTo(value)> 0) { 
 				if (right == null)
 				{
-					right = new BST(word);	
+					right = new BST(word);
+					size++;
 				}
 				else
 				{
@@ -102,75 +100,71 @@ public class TreeWordSet implements WordSet {
 			return true;  
 		}
 		
-		
-		
-		Word next() {
-				
-					if (left != null)
-					{
-						l = false;
-						
-						return value;
-					}
-					else if(left == null)
-					{	
-						r = true;
-						next();
-					}
-				
-			
-				
-					if(right != null && r)
-					{
-						r = false;
-						
-						return right.value;
-					}
-					else if(right == null)
-					{	//b = true;
-						r=false;
-						
-						next();
-					}
-				
-			
-			
-			return left.value;
-			
-		}
 	}
+	//tree iterator helper class.
 	private class SetIterator implements Iterator<Word> {
-
-		
+		//new instance.
+		private ArrayBSTStack NodeStack = new ArrayBSTStack();
+		//constructor
 		public SetIterator()
-		{
+		{	//adds in left side
+			addLeft(root); 
 			
 		}
-		
+		//adds on left side.
+		 private void addLeft(BST bst)
+	      {	 //while bst not null
+	         while (bst != null)
+	         {	//adds
+	            NodeStack.push(bst);
+	            //bts equals bst.right;
+	            bst = bst.right;
+	         }
+	      }
+		//if hade more elements, then return true else false.
 		@Override
 		public boolean hasNext() {
-			count++;
-				
-				if(count<=size)
-				{
-					return true;
-				}
-				
-				
 			
-			return false;
-			
-			
+			return !NodeStack.isEmpty();
 		}
-
+		//returns next element.
 		@Override
 		public Word next() {
-			
-			return root.next();
-			
+			//throws exception if run out of elements.
+		 	if (!hasNext ( )) {
+	            try {
+					throw new Exception("tree is out of elements");
+				} catch (Exception e) {
+					
+					e.printStackTrace();
+				}
+	        }
+		 	 //removes element
+	         BST bst = NodeStack.pop();
+	         //adds bst.left to add left method.
+	         addLeft(bst.left);
+	         //returns word.
+	         return bst.value;
+	 
 		}
 		
+		
 	}
+	//returns a printable string.
+	@Override
+	public String toString()
+	{
+		Iterator it = iterator();
+		StringBuffer strbuf = new StringBuffer();
+		while (it.hasNext())
+		{
+			strbuf.append(it.next().toString()+", ");
+		}
+		return strbuf.toString();
+		
+	}
+	
+	
 	
 	
 
